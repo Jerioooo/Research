@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HHLA 再开发投资研究</title>
+<style>
+:root{
+  --bg:#f6f7f9;--card:#ffffff;--fg:#1c2330;--muted:#5d6779;--line:#dfe3ea;
+  --accent:#1f3a5f;--accent-soft:#e6edf7;
+  --fact:#1b6e4a;--fact-bg:#e3f4ec;
+  --assume:#8a5a00;--assume-bg:#fff1d6;
+  --open:#a02c2c;--open-bg:#fbe5e5;
+  --unv:#5b4a9a;--unv-bg:#ece8fa;
+  --n2:#e8a7a7;--n1:#f6d4d4;--w:#f3eed2;--p1:#cfe9d9;--p2:#a9d9bd;--p3:#7cc59c;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#10141b;--card:#171d27;--fg:#e6eaf1;--muted:#9aa5b8;--line:#2a3342;
+    --accent:#8db4ee;--accent-soft:#1c2a40;
+    --fact:#6fd3a2;--fact-bg:#163326;
+    --assume:#f0c26b;--assume-bg:#3a2d10;
+    --open:#f19a9a;--open-bg:#3a1b1b;
+    --unv:#c0b2f3;--unv-bg:#2a2347;
+    --n2:#7a3636;--n1:#4f2a2a;--w:#463f1d;--p1:#24523b;--p2:#2d6a4a;--p3:#378558;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif;
+  line-height:1.7;font-size:15px}
+a{color:var(--accent)}
+.layout{max-width:1180px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:210px minmax(0,1fr);gap:36px}
+nav.toc{position:sticky;top:20px;align-self:start;padding:28px 0;font-size:13px}
+nav.toc b{display:block;margin-bottom:8px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+nav.toc a{display:block;padding:4px 0 4px 10px;color:var(--muted);text-decoration:none;border-left:2px solid var(--line)}
+nav.toc a:hover{color:var(--accent);border-left-color:var(--accent)}
+main{padding:28px 0 80px;min-width:0}
+header.hero{padding:8px 0 22px}
+.eyebrow{font-size:12px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+h1{font-size:30px;line-height:1.3;margin:6px 0 10px;color:var(--fg)}
+.lede{color:var(--muted);max-width:760px;margin:0}
+h2{font-size:21px;margin:46px 0 14px;padding-top:6px;border-top:2px solid var(--accent);color:var(--fg)}
+h2 .num{color:var(--accent);margin-right:8px}
+h3{font-size:16px;margin:26px 0 8px}
+p{margin:10px 0}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.tag{display:inline-block;font-size:11.5px;line-height:1;padding:4px 8px;border-radius:999px;font-weight:600;white-space:nowrap;vertical-align:middle}
+.t-fact{background:var(--fact-bg);color:var(--fact)}
+.t-assume{background:var(--assume-bg);color:var(--assume)}
+.t-open{background:var(--open-bg);color:var(--open)}
+.t-unv{background:var(--unv-bg);color:var(--unv)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card .k{font-size:12px;color:var(--muted)}
+.card .v{font-size:24px;font-weight:700;margin:2px 0;color:var(--fg);font-variant-numeric:tabular-nums}
+.card .s{font-size:12px;color:var(--muted)}
+.verdict{background:var(--accent-soft);border-left:4px solid var(--accent);border-radius:8px;padding:14px 18px;margin:18px 0}
+.verdict b{color:var(--accent)}
+.note{background:var(--card);border:1px dashed var(--line);border-radius:8px;padding:10px 14px;color:var(--muted);font-size:13.5px;margin:12px 0}
+.callout-warn{background:var(--assume-bg);border-radius:8px;padding:10px 14px;margin:12px 0;color:var(--fg);font-size:14px}
+.tbl-wrap{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--accent-soft);color:var(--fg);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.timeline{list-style:none;margin:14px 0;padding:0;border-left:2px solid var(--line)}
+.timeline li{position:relative;padding:0 0 14px 20px}
+.timeline li::before{content:"";position:absolute;left:-6px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.timeline .d{font-weight:700;margin-right:8px}
+.bar-row{display:grid;grid-template-columns:90px 1fr 86px;gap:10px;align-items:center;margin:8px 0;font-size:13px}
+.bar-track{position:relative;height:22px;background:var(--accent-soft);border-radius:5px}
+.bar-fill{height:100%;border-radius:5px;background:var(--accent)}
+.bar-line{position:absolute;top:-4px;bottom:-4px;width:2px;background:#d0492f}
+.bar-cap{font-size:12px;color:var(--muted);margin-top:4px}
+.stack{display:flex;height:34px;border-radius:7px;overflow:hidden;margin:10px 0 6px;border:1px solid var(--line)}
+.stack div{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden}
+.s1{background:#1f3a5f}.s2{background:#4a7bb5}.s3{background:#8a97aa}
+.stack-leg{font-size:12.5px;color:var(--muted)}
+.heat td{text-align:center;font-variant-numeric:tabular-nums;border:1px solid var(--card)}
+.heat th{text-align:center}
+.heat td.rh{background:var(--accent-soft);font-weight:600}
+.n2{background:var(--n2)}.n1{background:var(--n1)}.w{background:var(--w)}.p1{background:var(--p1)}.p2{background:var(--p2)}.p3{background:var(--p3)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.formula{font-family:ui-monospace,Menlo,Consolas,monospace;background:var(--accent-soft);padding:8px 12px;border-radius:6px;font-size:13px;margin:8px 0;overflow-x:auto}
+ul.tight{margin:6px 0;padding-left:20px}
+ul.tight li{margin:3px 0}
+footer{margin-top:50px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr;gap:0}
+  nav.toc{display:none}
+  .two{grid-template-columns:1fr}
+  h1{font-size:24px}
+}
+@media print{
+  body{background:#fff;color:#000}
+  nav.toc{display:none}
+  .layout{display:block}
+  .card,.tbl-wrap{break-inside:avoid}
+  h2{break-after:avoid}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<nav class="toc" aria-label="目录">
+  <b>目录</b>
+  <a href="#sum">核心结论</a>
+  <a href="#s1">1 交易背景</a>
+  <a href="#s2">2 改造资本</a>
+  <a href="#s3">3 主力租户与招商策略</a>
+  <a href="#s4">4 访客经济</a>
+  <a href="#s5">5 NOI 与估值</a>
+  <a href="#s6">6 五年情景模型</a>
+  <a href="#s7">7 Meow Wolf 租约</a>
+  <a href="#s8">8 风险矩阵</a>
+  <a href="#s9">9 最新进展</a>
+  <a href="#s10">10 投资判断</a>
+  <a href="#s11">11 尽调与监控</a>
+  <a href="#src">来源</a>
+</nav>
+
+<main>
+<header class="hero">
+  <div class="eyebrow">Distressed Acquisition &amp; Redevelopment · Case Study</div>
+  <h1>HHLA 商业地产转型:一项困境资产的收购与再开发</h1>
+  <p class="lede">研究问题不是"Meow Wolf 能吸引多少人",而是:2023 年的收购价有没有留出安全边际?1.5 亿美元改造能否变成可支撑估值的 NOI?数据截至 2026 年 11 月 8 日。</p>
+  <div class="legend">
+    <span class="tag t-fact">已披露</span><span style="font-size:12.5px;color:var(--muted)">公开报道或官方页面</span>
+    <span class="tag t-assume">模型假设</span><span style="font-size:12.5px;color:var(--muted)">本报告设定</span>
+    <span class="tag t-unv">未核实</span><span style="font-size:12.5px;color:var(--muted)">线索存在,无法确认</span>
+    <span class="tag t-open">待尽调</span><span style="font-size:12.5px;color:var(--muted)">必须向业主或 JLL 索取</span>
+  </div>
+</header>
+
+<section id="sum">
+  <div class="cards">
+    <div class="card"><div class="k">2023 年收购价</div><div class="v">$80M</div><div class="s">约 $320/SF · 比 2015 年低 28%</div></div>
+    <div class="card"><div class="k">公布的再开发预算</div><div class="v">$150M</div><div class="s">约为收购价的 1.9 倍</div></div>
+    <div class="card"><div class="k">计划资本基准</div><div class="v">$230M</div><div class="s">未计费用、融资与超支</div></div>
+    <div class="card"><div class="k">最大两家租户占比</div><div class="v">≈59.5%</div><div class="s">Meow Wolf + Cinemark(按面积)</div></div>
+    <div class="card"><div class="k">基准情景无杠杆 IRR</div><div class="v">-2.9%</div><div class="s">模型假设,非实际业绩</div></div>
+  </div>
+  <div class="verdict">
+    <b>一句话判断:</b>收购价有吸引力,但再开发资本非常激进。按本报告的基准假设,退出价值只有资本基准的约 69%;要让估值回到 $230M 以上,稳定期需要约 $64–76/已出租 SF 的 NOI(取决于是否计入费用与销售成本)。目前评价为<b>"转型逻辑已建立、经营验证尚未完成"</b>,不是已经成功的资产重估。
+  </div>
+  <p><b>相比上一版新增的判断:</b>(1)租户集中度比"锚定租户依赖"一词所暗示的更高,两家最大租户合计约占六成面积;(2)Meow Wolf 开业已从"2026 年初"推迟到 2027 年 1 月,租金与客流起算时点要相应后移;(3)新增的儿童与健身租户明显是在补周中白天与会员型客流,但面积、租金均未披露;(4)Meow Wolf 自身 2024 年的裁员与"访客减少"表述,是租户信用与客流预测的现实折扣因素。</p>
+</section>
+
+<section id="s1">
+  <h2><span class="num">1</span>项目基本面与交易背景</h2>
+  <p>HHLA(原 The Promenade at Howard Hughes Center)位于洛杉矶 Westchester,地址 6081 Center Drive,是约 248,841 平方英尺的两层开放式娱乐餐饮中心,紧邻 405 号州际公路,距 LAX 约 3 英里。<span class="tag t-fact">已披露</span></p>
+  <ul class="timeline">
+    <li><span class="d">2000</span>Promenade 开业,传统零售、餐饮、影院。</li>
+    <li><span class="d">2015</span>Laurus / Torchlight 以约 $111M 收购,随后投入约 $35M 改造(2020 年初完工)。</li>
+    <li><span class="d">2023.3</span>Cannon TTM 以约 $80M(约 $320/SF)收购,当时出租率约 80%;JLL 与 Newmark 经纪成交。同时宣布 60out 密室逃脱等新租户。</li>
+    <li><span class="d">2024.5–7</span>Meow Wolf 签约;业主公布 $150M 整体改造计划。</li>
+    <li><span class="d">2026.11</span>改造仍在进行,新增 MOX Gym、Squiggleverse 等 2027 年租户;业主访客目标约 300 万人次(仅见标题,正文受订阅限制)。</li>
+  </ul>
+  <p>2015 年买入加改造约 $146M,2023 年成交 $80M,账面落差很大。但这不等于前业主的实际亏损,因为持有期现金流、融资成本和税务均未披露。</p>
+  <h3>2023 年买家的三个优势</h3>
+  <ul class="tight">
+    <li>较低的初始成本:约 $320/SF。</li>
+    <li>可重新配置的空间:约 20% 空置(约 49,800 SF)加影院空间,可以重做租户组合。</li>
+    <li>重新定位的主动权:不必延续传统零售逻辑。</li>
+  </ul>
+  <p>低价不等于低风险,空置与客流问题正是低估值的成因。</p>
+</section>
+
+<section id="s2">
+  <h2><span class="num">2</span>1.5 亿美元改造:资金使用效率</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>投资方向</th><th class="num">计划金额</th><th class="num">占比</th><th>证据</th></tr>
+    <tr><td>影院空间拆分及 Meow Wolf 配套改造(结构、电力、暖通、新增电梯、隔断)</td><td class="num">$120M</td><td class="num">80%</td><td><span class="tag t-fact">业主计划</span></td></tr>
+    <tr><td>公共区域:艺术、音响、停车、标识、餐饮区</td><td class="num">$30M</td><td class="num">20%</td><td><span class="tag t-fact">业主计划</span></td></tr>
+    <tr><td><b>合计</b></td><td class="num"><b>$150M</b></td><td class="num">100%</td><td><span class="tag t-open">实际支出待尽调</span></td></tr>
+  </table></div>
+  <div class="formula">$120,000,000 ÷ 74,000 SF ≈ $1,622/SF(项目级指标,非审计成本)</div>
+  <p>业主说明这笔钱同时用于租户装修(TI)与公共区域。这意味着一部分资本是业主替租户出的,而不是租户自己承担。关键问题是:$120M 究竟形成了多少可再出租面积和可转用价值?如果多数是运营商专用装修,租约终止时残值可能远低于造价。</p>
+</section>
+
+<section id="s3">
+  <h2><span class="num">3</span>主力租户与招商策略 <span class="tag t-fact">新增</span></h2>
+
+  <h3>3.1 租户名单</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>租户</th><th>业态</th><th>状态</th><th>面积</th><th>证据</th></tr>
+    <tr><td><b>Meow Wolf</b></td><td>沉浸式艺术展</td><td>2027 年 1 月开业(Artnet);官网仍写 late 2026</td><td>约 74,000 SF(Commercial Observer 为 75,000)</td><td><span class="tag t-fact">已披露</span></td></tr>
+    <tr><td><b>Cinemark</b></td><td>影院</td><td>缩减后第一层保留 12 个厅,Meow Wolf 在楼上</td><td>约 74,000 SF(148,000 SF 对半拆分)</td><td><span class="tag t-fact">已披露</span></td></tr>
+    <tr><td><b>Squiggleverse</b></td><td>儿童付费室内乐园(滑梯、障碍赛道、STEM 实验室)</td><td>HHLA 官网列为 Coming Soon</td><td>未公开</td><td><span class="tag t-fact">官方页面</span><span class="tag t-open">面积待尽调</span></td></tr>
+    <tr><td><b>MOX Gym</b></td><td>健身</td><td>The Registry 称属 2027 年阵容</td><td>未公开</td><td><span class="tag t-fact">行业报道</span><span class="tag t-open">条款待尽调</span></td></tr>
+    <tr><td><b>The Little Gym</b></td><td>儿童体能课(全国连锁)</td><td>CoStar 将其列为相关公司;租约细节不明</td><td>未公开(其他城市门店多为 3,000–4,000 SF)</td><td><span class="tag t-unv">未核实</span></td></tr>
+    <tr><td><b>60out</b></td><td>密室逃脱 + VR</td><td>已开业,自称西海岸最大沉浸式娱乐中心</td><td>未公开</td><td><span class="tag t-fact">已披露</span></td></tr>
+    <tr><td>Dave &amp; Buster's、Buffalo Wild Wings、Islands、Kabuki、Ben &amp; Jerry's、Color Me Mine 等</td><td>娱乐与餐饮</td><td>现有租户(官网仍在主推 D&amp;B、Kabuki、Islands、BWW)</td><td>未公开</td><td><span class="tag t-fact">已披露</span></td></tr>
+    <tr><td>Prince Street Pizza</td><td>餐饮</td><td>仅见链接标题含此名,正文无法打开</td><td>—</td><td><span class="tag t-unv">未核实</span></td></tr>
+    <tr><td>穆罕默德·阿里体验馆</td><td>体验展</td><td>2023 年宣布,现官网首页未提</td><td>—</td><td><span class="tag t-unv">状态未核实</span></td></tr>
+  </table></div>
+  <p class="note">租赁由 JLL 负责。业主拒绝披露空置率;一份未注明日期的挂牌信息显示有 11 个 620–15,000 SF 的空间,三净租赁,租金需询价。该挂牌可能已过期。</p>
+
+  <h3>3.2 租户集中度</h3>
+  <p>按 LABJ 的口径,148,000 SF 的 Cinemark 空间被对半拆分,Meow Wolf 与影院各约 74,000 SF。相对 248,841 SF 总面积:</p>
+  <div class="stack" role="img" aria-label="面积占比条形图">
+    <div class="s1" style="width:29.7%">Meow Wolf 29.7%</div>
+    <div class="s2" style="width:29.7%">Cinemark 29.7%</div>
+    <div class="s3" style="width:40.6%">其余 40.6%</div>
+  </div>
+  <div class="stack-leg">其余含 D&amp;B、60out、餐饮、新进儿童与健身租户及空置,各自面积均未公开。</div>
+  <p>也就是说,约六成面积押在"一个新进的沉浸式运营商 + 一个正在缩减的传统影院"上。影院本身是业态走弱的租户,缩到 12 个厅后,其到访与续租能力需要单独评估。</p>
+
+  <h3>3.3 招商逻辑</h3>
+  <div class="two">
+    <div class="card"><div class="k">业主明确说过的 <span class="tag t-fact">已披露</span></div>
+      <ul class="tight">
+        <li>目标是做出独特的"目的地型"吸客点。</li>
+        <li>Meow Wolf 是未来一系列租户中的第一个。</li>
+        <li>资金用于租户装修以及公共区域、停车改造。</li>
+        <li>仍在与多个潜在租户洽谈剩余空置面积。</li>
+      </ul></div>
+    <div class="card"><div class="k">本报告的推断 <span class="tag t-assume">推断</span></div>
+      <ul class="tight">
+        <li>阵容在按时段补客源:Meow Wolf 与影院吃晚间和周末,儿童乐园与亲子课补周中白天,健身补早晚高频会员。</li>
+        <li>D&amp;B、60out 构成社交娱乐集群,餐饮负责拉长停留。</li>
+        <li>目的是降低对单一锚点的依赖。业主没有这样表述。</li>
+      </ul></div>
+  </div>
+  <p>行业层面的参考:MIT 房地产创新实验室一项研究的摘要指出,体验型租户平均比非体验型多约 $12/SF 的装修补贴,租期多约 17 个月。这是行业均值,不是 HHLA 数据,但提示业主为体验型租户付出的资本通常更高。</p>
+
+  <h3>3.4 Meow Wolf 的执行与信用风险</h3>
+  <ul class="tight">
+    <li><b>开业延后:</b>最初宣布 2026 年初,现为 2027 年 1 月,约晚一年。租金起算与客流爬坡都应从 2027 年算。<span class="tag t-fact">已披露</span></li>
+    <li><b>公司层面:</b>2024 年 4 月裁员约 165 人;12 月再裁约 75 人(中央团队约 20%),公司当时将原因部分归为"访客减少"。工会还提出财务管理质疑。这些是租户信用与客流预测的折扣因素。<span class="tag t-fact">已披露</span></li>
+    <li><b>仍在扩张:</b>纽约 Pier 17 为第七个展馆,说明公司仍在推进新店,但这不等于单店盈利。</li>
+  </ul>
+</section>
+
+<section id="s4">
+  <h2><span class="num">4</span>访客经济:从 259 万人次到物业 NOI</h2>
+  <h3>4.1 Meow Wolf 的访客预测</h3>
+  <div class="formula">74,000 SF × 35 人/SF = 2,590,000 人次/年;54 美元假设票价 → 门票总收入 &gt; $1.4 亿</div>
+  <div class="callout-warn">三个限制:① 35 人/SF 是业主预测,不是洛杉矶经营数据;且 Meow Wolf 自己在 2024 年提到访客减少趋势;② 54 美元参考拉斯维加斯票价;③ 门票收入属于运营商,不属于 HHLA 业主,不能拿来证明物业收益。</div>
+  <h3>4.2 300 万人次目标</h3>
+  <p>2026 年 11 月 2 日 L.A. Business First 的标题提到 300 万人次目标,正文无法读取,因此只能视为业主目标。若 Meow Wolf 达到 259 万,其他业态合计只需约 41 万人次。但同一消费者会重复计入不同业态,必须区分<b>总进场人次</b>与<b>去重独立访客</b>。</p>
+  <h3>4.3 客流到消费的转化敏感性 <span class="tag t-assume">模型假设</span></h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>假设指标</th><th class="num">保守</th><th class="num">基准</th><th class="num">乐观</th></tr>
+    <tr><td>年访客人次</td><td class="num">200 万</td><td class="num">260 万</td><td class="num">300 万</td></tr>
+    <tr><td>进入其他商户比例</td><td class="num">15%</td><td class="num">25%</td><td class="num">35%</td></tr>
+    <tr><td>跨业态消费人次</td><td class="num">30 万</td><td class="num">65 万</td><td class="num">105 万</td></tr>
+    <tr><td>每次消费金额</td><td class="num">$25</td><td class="num">$35</td><td class="num">$45</td></tr>
+    <tr><td><b>其他商户关联消费额</b></td><td class="num"><b>$750 万</b></td><td class="num"><b>$2,275 万</b></td><td class="num"><b>$4,725 万</b></td></tr>
+  </table></div>
+  <p>此表有意排除 Meow Wolf 门票收入。商户销售额只有在租户能承担更高租金、并以租金形式回到业主手里时,才会变成物业 NOI。</p>
+</section>
+
+<section id="s5">
+  <h2><span class="num">5</span>改造后的 NOI 与资产估值</h2>
+  <p>目前没有公开的租约清单、实际租金、出租率或改造后 NOI,所以这里是情景测算,用来回答"需要什么经营水平才有经济合理性"。<span class="tag t-assume">模型假设</span></p>
+  <div class="tbl-wrap"><table>
+    <tr><th>情景</th><th class="num">稳定出租率</th><th class="num">已出租面积</th><th class="num">NOI/已出租 SF</th><th class="num">年度 NOI</th><th class="num">Cap Rate</th><th class="num">隐含价值</th></tr>
+    <tr><td>保守</td><td class="num">90%</td><td class="num">223,957</td><td class="num">$30</td><td class="num">$6.72M</td><td class="num">8.00%</td><td class="num">$84.0M</td></tr>
+    <tr><td>基准</td><td class="num">93%</td><td class="num">231,422</td><td class="num">$45</td><td class="num">$10.41M</td><td class="num">7.25%</td><td class="num">$143.6M</td></tr>
+    <tr><td>乐观</td><td class="num">95%</td><td class="num">236,399</td><td class="num">$60</td><td class="num">$14.18M</td><td class="num">6.50%</td><td class="num">$218.2M</td></tr>
+  </table></div>
+  <p>NOI/SF 指扣除物业层面运营费用后的净收入,不是租金报价。</p>
+
+  <h3>隐含价值 vs. $230M 计划资本基准</h3>
+  <div class="bar-row"><span>保守</span><div class="bar-track"><div class="bar-fill" style="width:36.5%"></div><div class="bar-line" style="left:100%"></div></div><span>$84.0M</span></div>
+  <div class="bar-row"><span>基准</span><div class="bar-track"><div class="bar-fill" style="width:62.4%"></div><div class="bar-line" style="left:100%"></div></div><span>$143.6M</span></div>
+  <div class="bar-row"><span>乐观</span><div class="bar-track"><div class="bar-fill" style="width:94.9%"></div><div class="bar-line" style="left:100%"></div></div><span>$218.2M</span></div>
+  <div class="bar-cap">红线 = $230M(收购 $80M + 改造 $150M)。即使乐观情景,估值也略低于资本基准。</div>
+
+  <h3>回本所需的 NOI</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>退出 Cap Rate</th><th class="num">所需 NOI</th><th class="num">按总面积 NOI/SF</th></tr>
+    <tr><td>6.00%</td><td class="num">$13.80M</td><td class="num">$55.46</td></tr>
+    <tr><td>6.50%</td><td class="num">$14.95M</td><td class="num">$60.08</td></tr>
+    <tr><td>7.00%</td><td class="num">$16.10M</td><td class="num">$64.70</td></tr>
+    <tr><td>7.50%</td><td class="num">$17.25M</td><td class="num">$69.32</td></tr>
+    <tr><td>8.00%</td><td class="num">$18.40M</td><td class="num">$73.94</td></tr>
+  </table></div>
+  <p>以 $230M 为基准、95% 出租率、7% 退出 Cap,需要约 $68.10/已出租 SF。若再计入 1% 交易杂费、5% 超支和 1.5% 销售成本,基准情景下的盈亏平衡升至约 $75.8/已出租 SF(见第 6 节)。</p>
+</section>
+
+<section id="s6">
+  <h2><span class="num">6</span>五年情景模型结果 <span class="tag t-fact">新增</span> <span class="tag t-assume">模型假设</span></h2>
+  <p>配套 Excel 模型(<code>HHLA_Investment_Model.xlsx</code>)已完成公式校验:464 个公式 0 个错误,三个情景的总成本、稳定 NOI、退出价值与无杠杆 IRR 经独立复算一致。模型设定:2026 年末一次性计入全部资本,2027–2031 持有,2031 年末按前瞻 NOI 退出。</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>情景</th><th class="num">总资本基准</th><th class="num">稳定 NOI</th><th class="num">Yield on Cost</th><th class="num">净退出/成本</th><th class="num">无杠杆 IRR</th><th class="num">盈亏平衡 NOI/已出租 SF</th></tr>
+    <tr><td>保守</td><td class="num">$253.3M</td><td class="num">$6.72M</td><td class="num">2.65%</td><td class="num">0.36x</td><td class="num">-15.2%</td><td class="num">$91.9</td></tr>
+    <tr><td>基准</td><td class="num">$238.3M</td><td class="num">$10.41M</td><td class="num">4.37%</td><td class="num">0.69x</td><td class="num">-2.9%</td><td class="num">$75.8</td></tr>
+    <tr><td>乐观</td><td class="num">$230.8M</td><td class="num">$14.18M</td><td class="num">6.15%</td><td class="num">1.11x</td><td class="num">7.3%</td><td class="num">$64.4</td></tr>
+  </table></div>
+  <p class="note">总资本基准含 1% 杂费与情景超支(保守 15% / 基准 5% / 乐观 0%)。爬坡:基准 2027 年 40% → 2030 年 100%。出租率、NOI/SF、增长率、Exit Cap 均为本报告假设,不是 HHLA 披露数据。</p>
+
+  <h3>敏感性:NOI/已出租 SF × 退出 Cap</h3>
+  <p style="font-size:13.5px;color:var(--muted)">其他假设取基准情景(93% 出租率、3% 增长、5% 超支)。</p>
+  <div class="two">
+    <div>
+      <b style="font-size:13.5px">无杠杆 IRR</b>
+      <div class="tbl-wrap"><table class="heat">
+        <tr><th>NOI \ Cap</th><th>6.0%</th><th>6.5%</th><th>7.0%</th><th>7.5%</th><th>8.0%</th></tr>
+        <tr><td class="rh">$30</td><td class="n2">-8.0%</td><td class="n2">-9.2%</td><td class="n2">-10.4%</td><td class="n2">-11.5%</td><td class="n2">-12.4%</td></tr>
+        <tr><td class="rh">$40</td><td class="n1">-2.2%</td><td class="n1">-3.5%</td><td class="n1">-4.8%</td><td class="n2">-5.9%</td><td class="n2">-6.9%</td></tr>
+        <tr><td class="rh">$50</td><td class="p1">2.6%</td><td class="p1">1.2%</td><td class="n1">-0.1%</td><td class="n1">-1.3%</td><td class="n1">-2.3%</td></tr>
+        <tr><td class="rh">$60</td><td class="p2">6.7%</td><td class="p2">5.2%</td><td class="p1">3.9%</td><td class="p1">2.7%</td><td class="p1">1.6%</td></tr>
+        <tr><td class="rh">$70</td><td class="p3">10.3%</td><td class="p3">8.8%</td><td class="p2">7.4%</td><td class="p2">6.2%</td><td class="p2">5.1%</td></tr>
+      </table></div>
+    </div>
+    <div>
+      <b style="font-size:13.5px">净退出价值 ÷ 资本基准</b>
+      <div class="tbl-wrap"><table class="heat">
+        <tr><th>NOI \ Cap</th><th>6.0%</th><th>6.5%</th><th>7.0%</th><th>7.5%</th><th>8.0%</th></tr>
+        <tr><td class="rh">$30</td><td class="n2">0.55x</td><td class="n2">0.51x</td><td class="n2">0.48x</td><td class="n2">0.44x</td><td class="n2">0.42x</td></tr>
+        <tr><td class="rh">$40</td><td class="n1">0.74x</td><td class="n1">0.68x</td><td class="n1">0.63x</td><td class="n2">0.59x</td><td class="n2">0.55x</td></tr>
+        <tr><td class="rh">$50</td><td class="w">0.92x</td><td class="w">0.85x</td><td class="n1">0.79x</td><td class="n1">0.74x</td><td class="n1">0.69x</td></tr>
+        <tr><td class="rh">$60</td><td class="p1">1.11x</td><td class="p1">1.02x</td><td class="w">0.95x</td><td class="w">0.89x</td><td class="n1">0.83x</td></tr>
+        <tr><td class="rh">$70</td><td class="p2">1.29x</td><td class="p1">1.19x</td><td class="p1">1.11x</td><td class="p1">1.03x</td><td class="w">0.97x</td></tr>
+      </table></div>
+    </div>
+  </div>
+  <div class="callout-warn"><b>杠杆结果不要当真实判断。</b>融资比例(50% LTC)、利率(7.5%)与费用(1%)都是占位假设,资本结构并未披露。在这些参数下,基准情景有杠杆 IRR 约 -17%,首年利息覆盖倍数仅 0.47x,说明高资本密度项目的早期现金流很难覆盖债务成本,但具体数字取决于占位参数。</div>
+  <p><b>怎么读:</b>NOI 约 $60/已出租 SF 才开始接近回本,约 $70 才比较宽裕。要得出这个水平,需要的不只是更多客流,而是租户销售额真正转化为更高有效租金。</p>
+</section>
+
+<section id="s7">
+  <h2><span class="num">7</span>Meow Wolf 租约:最大的未知数</h2>
+  <p>公开信息确认其租约面积约 74,000–75,000 SF,但租金、期限、递增、免租期、TI 补贴和提前退出条款均未公开。<span class="tag t-open">待尽调</span></p>
+  <div class="tbl-wrap"><table>
+    <tr><th>假设年租金</th><th class="num">$25/SF</th><th class="num">$35/SF</th><th class="num">$45/SF</th><th class="num">$55/SF</th></tr>
+    <tr><td>74,000 SF 年度基础租金 <span class="tag t-assume">假设</span></td><td class="num">$1.85M</td><td class="num">$2.59M</td><td class="num">$3.33M</td><td class="num">$4.07M</td></tr>
+  </table></div>
+  <p>高客流不等于高租金。沉浸式空间需要大量定制装修,运营商通常会要求更长租期、免租装修期、业主承担部分改造成本。即使按 $55/SF 的高假设,Meow Wolf 的基础租金也只有约 $4M,仅占上一节所需稳定 NOI(约 $14–18M)的一部分。物业整体 NOI 是否成立,更取决于其余约 175,000 SF 的租户表现。</p>
+  <p>必须弄清:$120M 中业主实际承担多少?Meow Wolf 是否自担部分专用装修?租约终止时这些改造的残值归谁?</p>
+</section>
+
+<section id="s8">
+  <h2><span class="num">8</span>主要投资风险</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>风险</th><th>表现</th><th>对回报的影响</th></tr>
+    <tr><td>资本开支超支</td><td>定制化娱乐设施、结构及机电工程复杂</td><td>提高实际成本(模型中保守情景 +15%)</td></tr>
+    <tr><td><b>租户集中</b> <span class="tag t-fact">新增</span></td><td>Meow Wolf + Cinemark 约占 59.5% 面积</td><td>任一方出问题即冲击整体 NOI</td></tr>
+    <tr><td><b>租户信用与客流预期</b> <span class="tag t-fact">新增</span></td><td>Meow Wolf 2024 年两轮裁员,并提到访客减少</td><td>35 人/SF 的预测应打折看待</td></tr>
+    <tr><td><b>开业延后</b> <span class="tag t-fact">新增</span></td><td>2026 初 → 2027 年 1 月</td><td>租金起算后移,持有成本上升</td></tr>
+    <tr><td>影院缩减</td><td>Cinemark 缩至 12 个厅</td><td>传统租户的到访与续租能力需单独评估</td></tr>
+    <tr><td>客流转化不足</td><td>访客不进其他商户消费</td><td>客流增长无法转为租金增长</td></tr>
+    <tr><td>租户组合不成熟</td><td>餐饮、零售、娱乐客群与营业时间不匹配</td><td>降低交叉消费与续租</td></tr>
+    <tr><td>运营成本上升</td><td>安保、停车、清洁、活动</td><td>NOI 增速低于收入增速</td></tr>
+    <tr><td>体验内容衰减</td><td>新奇感下降、复访不足</td><td>客流与销售额回落</td></tr>
+    <tr><td><b>专用装修残值低</b></td><td>难转作普通商业用途</td><td>空置、拆除恢复、再装修都由业主面对</td></tr>
+  </table></div>
+  <p>最容易被低估的仍是专用装修的残值。普通零售可以靠换租户恢复出租率,但大型沉浸式空间需要高度专业化的结构、机电与灯光设备。</p>
+</section>
+
+<section id="s9">
+  <h2><span class="num">9</span>2026 年最新进展</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>事项</th><th>当前可确认状态</th><th>证据</th></tr>
+    <tr><td>物业定位</td><td>官方称开放式娱乐与餐饮目的地</td><td><span class="tag t-fact">已披露</span></td></tr>
+    <tr><td>Meow Wolf</td><td>2027 年 1 月开业(Artnet);官网写 late 2026;已公布 39 位本地艺术家</td><td><span class="tag t-fact">已披露</span></td></tr>
+    <tr><td>新租户</td><td>Squiggleverse(官网)、MOX Gym(Registry)、The Little Gym(CoStar 提及)</td><td><span class="tag t-fact">已披露</span> / <span class="tag t-unv">部分未核实</span></td></tr>
+    <tr><td>1.5 亿美元改造</td><td>2026 年 11 月仍被描述为进行中</td><td><span class="tag t-fact">已披露</span></td></tr>
+    <tr><td>年访客目标</td><td>约 300 万人次(标题级信息)</td><td><span class="tag t-unv">正文未读</span></td></tr>
+    <tr><td>改造后 NOI / 出租率 / 租金</td><td>无可靠公开数据</td><td><span class="tag t-open">待尽调</span></td></tr>
+  </table></div>
+</section>
+
+<section id="s10">
+  <h2><span class="num">10</span>投资判断</h2>
+  <div class="two">
+    <div class="card"><div class="k">正面因素</div>
+      <ul class="tight">
+        <li>2023 年低基点收购(约 $320/SF)。</li>
+        <li>405 沿线、近 LAX,可达性好。</li>
+        <li>约 25 万 SF 可重新配置。</li>
+        <li>Meow Wolf 提供强差异化。</li>
+        <li>新增儿童与健身租户,客群比单一锚点更分散。</li>
+      </ul></div>
+    <div class="card"><div class="k">主要弱点</div>
+      <ul class="tight">
+        <li>改造预算约为收购价 1.9 倍。</li>
+        <li>两家租户占六成面积,其中一家信用与客流预期存疑。</li>
+        <li>业主租金与运营商门票收入不可混淆。</li>
+        <li>基准情景估值仅为资本基准的约 69%。</li>
+        <li>无公开 NOI、租金、出租率可验证。</li>
+      </ul></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <tr><th>维度</th><th>判断</th><th>原因</th></tr>
+    <tr><td>收购价格</td><td>相对有利</td><td>比 2015 年低约 28%</td></tr>
+    <tr><td>区位</td><td>较好</td><td>高速公路可达性、LAX 与西洛杉矶客群</td></tr>
+    <tr><td>改造逻辑</td><td>有创新性</td><td>由传统零售转向体验式娱乐</td></tr>
+    <tr><td>租户组合</td><td>有潜力,集中度偏高</td><td>新租户已见端倪,但面积与租金不明</td></tr>
+    <tr><td>资本效率</td><td>压力大</td><td>改造成本相对收购价很高</td></tr>
+    <tr><td>收入确定性</td><td>不足</td><td>缺租金、客流、商户销售数据</td></tr>
+    <tr><td>退出估值</td><td>不确定</td><td>缺稳定 NOI 与可比交易</td></tr>
+  </table></div>
+  <h3>三个必须完成的转换</h3>
+  <ol class="tight">
+    <li><b>体验项目创造客流</b>:Meow Wolf 能否在洛杉矶达到业主预期规模?</li>
+    <li><b>客流转化为商户收入</b>:餐饮、零售、娱乐租户的销售能否持续增长?</li>
+    <li><b>商户收入转化为物业 NOI</b>:租户能否承担更高有效租金,成本能否受控?</li>
+  </ol>
+  <div class="verdict"><b>最终评价:</b>这是一个战略想象空间大、但资本回报门槛很高的再开发项目。当前更适合描述为"转型逻辑已建立、经营验证尚未完成"。不要把情景估值误认为实际投资回报。</div>
+</section>
+
+<section id="s11">
+  <h2><span class="num">11</span>尽调清单与监控指标</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>优先级</th><th>资料</th><th>目的</th></tr>
+    <tr><td>最高</td><td>当前 Rent Roll(含新租户面积、租金、到期日)</td><td>核实租户结构与租金</td></tr>
+    <tr><td>最高</td><td>2023–2026 年度 NOI 与最新出租率</td><td>判断改造前后经营变化</td></tr>
+    <tr><td>最高</td><td>$150M 实际 CapEx 明细与剩余投入</td><td>核实预算执行</td></tr>
+    <tr><td>最高</td><td>Meow Wolf 租约摘要</td><td>租金、期限、TI、免租、终止条款</td></tr>
+    <tr><td>高</td><td>MOX / Squiggleverse / Little Gym 租约条件</td><td>判断新租户的租金贡献</td></tr>
+    <tr><td>高</td><td>月度客流与租户销售报告</td><td>验证客流到消费的转化</td></tr>
+    <tr><td>高</td><td>物业运营费用、融资文件</td><td>替换模型占位假设</td></tr>
+    <tr><td>中</td><td>第三方估值、保险与工程风险报告</td><td>验证价值与风险敞口</td></tr>
+  </table></div>
+  <h3>每季度监控</h3>
+  <p>出租率(能否达 90–95%)· 有效租金(而非挂牌租金)· 同店 NOI 增长 · 商户单位销售额 · 客流转化率 · CapEx 偏差 · 未来 3–5 年租约到期集中度 · <b>Meow Wolf 开业日与首年实际客流</b> · <b>新增儿童与健身租户的开业与续租情况</b>。</p>
+</section>
+
+<section id="src">
+  <h2>来源</h2>
+  <ul class="tight" style="font-size:13px">
+    <li><a href="https://labusinessjournal.com/featured/hhla-works-on-150m-center-overhaul/">Los Angeles Business Journal:HHLA Works on $150M Center Overhaul</a>(2024.7)</li>
+    <li><a href="https://therealdeal.com/la/2024/07/03/ttm-announces-150m-revamp-of-hhla-outdoor-mall-in-west-la/">The Real Deal:TTM Announces $150M Revamp of HHLA</a>(2024.7)</li>
+    <li><a href="https://www.bisnow.com/news/los-angeles/retail/promenade-at-howard-hughes-center-sold-ttm-real-estate-capital-118332">Bisnow:Westside Retail Center Sells For $80M</a>(2023.3)</li>
+    <li><a href="https://www.bisnow.com/news/los-angeles/retail/meow-wolf-cannon-commercial-hhla-westchester-124232">Bisnow:Meow Wolf Coming To Cannon TTM's HHLA</a></li>
+    <li><a href="https://commercialobserver.com/2024/05/meow-wolf-los-angeles/">Commercial Observer:Meow Wolf Bringing Surreal Art Installation Space to L.A.'s Westside</a></li>
+    <li><a href="https://commercialobserver.com/2023/03/la-hhla-retail-mall-sale-discount-loss-cannon-laurus-torchlight/">Commercial Observer:Los Angeles Retail Center Sells for a Major Discount</a>(2023.3)</li>
+    <li><a href="https://www.costar.com/article/1471174165/west-coasts-first-meow-wolf-to-anchor-150-million-la-mall-overhaul">CoStar:West Coast's first Meow Wolf to anchor $150 million LA mall overhaul</a>(2026.11.2,部分付费)</li>
+    <li><a href="https://hhlaentertainment.com/coming-soon">HHLA 官网 Coming Soon</a> · <a href="https://hhlaentertainment.com/">HHLA 官网首页</a></li>
+    <li><a href="https://seanljenkins.com/market-signals">Market Signals(转述 The Registry SoCal 对 MOX Gym 与 Squiggleverse 的报道)</a></li>
+    <li><a href="https://news.artnet.com/art-world/meow-wolf-los-angeles-artists-2806029">Artnet:Meow Wolf L.A. Unveils Star-Studded Artist List</a></li>
+    <li><a href="https://news.artnet.com/art-world/meow-wolf-layoffs-christmas-petition-2583329">Artnet:Meow Wolf Announces New Round of Layoffs</a></li>
+    <li><a href="https://meowwolf.com/visit/los-angeles">Meow Wolf Los Angeles 官方页面</a></li>
+    <li><a href="https://realestateinnovationlab.mit.edu/wp-content/uploads/2020/04/summary-8.pdf">MIT Real Estate Innovation Lab 摘要</a>(体验型租户 TI 与租期)</li>
+    <li>L.A. Business First(2026.11.2)仅见标题,正文未读。</li>
+  </ul>
+  <footer>本报告为基于公开资料的研究分析,含大量模型假设,不构成投资建议。所有模型数字均为情景测算,不代表 HHLA 实际经营或市场成交价格。数据截至 2026 年 11 月 8 日。</footer>
+</section>
+
+</main>
+</div>
+</body>
+</html>

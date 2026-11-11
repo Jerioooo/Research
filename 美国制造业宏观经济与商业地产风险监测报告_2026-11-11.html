@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美国制造业、宏观经济与商业地产风险监测报告｜2026年11月</title>
+<style>
+:root{
+  --ink:#171b2a;--muted:#657084;--paper:#f5f6f8;--white:#fff;
+  --navy:#111b35;--blue:#3157d5;--cyan:#24b8c7;--violet:#7655d9;
+  --line:#e1e5ec;--pale:#edf1f8;--amber:#d18a20;--red:#c64b55;--green:#16866c;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,"Helvetica Neue",Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.68}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+.page{max-width:1180px;margin:auto;background:#fff;box-shadow:0 10px 50px rgba(20,30,55,.07)}
+.hero{background:linear-gradient(118deg,#101a33 0%,#18264a 58%,#273d78 100%);color:#fff;padding:72px 8.2% 58px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.12);border-radius:50%;right:-170px;top:-210px;box-shadow:0 0 0 55px rgba(255,255,255,.025),0 0 0 110px rgba(255,255,255,.02)}
+.kicker{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#9edbe5;font-weight:700}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.17;letter-spacing:-1.8px;max-width:850px;margin:24px 0 20px;font-weight:750}
+.hero .sub{font-size:19px;color:#d7deed;max-width:760px;line-height:1.6}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:38px;color:#b9c6dd;font-size:13px}
+.hero-meta b{display:block;color:white;font-size:14px;margin-bottom:3px}
+.hero-tag{display:inline-block;border:1px solid rgba(255,255,255,.25);border-radius:3px;padding:7px 11px;font-size:11px;letter-spacing:1px;margin-top:28px;color:#cceef1}
+nav{padding:17px 8.2%;border-bottom:1px solid var(--line);display:flex;gap:20px;flex-wrap:wrap;background:#fff;position:sticky;top:0;z-index:10}
+nav a{font-size:12px;color:#4e5a70;font-weight:650}
+main{padding:0 8.2% 70px}
+section{padding:54px 0 8px;border-bottom:1px solid var(--line)}
+section:last-child{border:0}
+.eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:800}
+h2{font-size:30px;line-height:1.25;letter-spacing:-.7px;margin:9px 0 18px;color:#151d32}
+h3{font-size:20px;line-height:1.35;margin:32px 0 12px;color:#1c2944}
+h4{font-size:15px;margin:20px 0 8px}
+p{margin:10px 0 14px}
+.lead{font-size:18px;color:#34415a;line-height:1.75;max-width:900px}
+.small{font-size:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin:22px 0}
+.card{background:#f7f8fb;border:1px solid #e8ebf1;padding:20px;border-radius:5px}
+.card.dark{background:var(--navy);color:#fff;border-color:var(--navy)}
+.card .label{font-size:11px;letter-spacing:1.2px;color:#738097;font-weight:800;text-transform:uppercase}
+.card.dark .label{color:#aab9d5}
+.metric{font-size:34px;line-height:1.15;font-weight:760;letter-spacing:-1px;margin:9px 0 4px}
+.metric.blue{color:var(--blue)}.metric.cyan{color:var(--cyan)}.metric.red{color:var(--red)}
+.card.dark .metric{color:#fff}
+.card p{font-size:13px;color:#59657a;margin-bottom:0}
+.card.dark p{color:#c6d0e2}
+.span3{grid-column:span 3}.span4{grid-column:span 4}.span5{grid-column:span 5}.span6{grid-column:span 6}.span7{grid-column:span 7}.span8{grid-column:span 8}.span12{grid-column:span 12}
+.callout{border-left:4px solid var(--cyan);padding:15px 19px;background:#f0f7f8;margin:22px 0;color:#26374a}
+.callout.warn{border-color:var(--amber);background:#fbf7ef}
+.callout.danger{border-color:var(--red);background:#fbf2f3}
+.callout strong{display:block;margin-bottom:4px}
+table{width:100%;border-collapse:collapse;margin:17px 0 9px;font-size:13px}
+th{text-align:left;background:#f0f2f7;color:#33405a;font-size:11px;letter-spacing:.4px;padding:12px 13px;font-weight:800}
+td{padding:11px 13px;border-bottom:1px solid #e7eaf0;vertical-align:top}
+tr:last-child td{border-bottom:0}
+td strong{color:#17223a}
+.pill{display:inline-block;padding:3px 8px;border-radius:2px;font-size:10px;font-weight:800;letter-spacing:.5px}
+.pill.red{background:#f9e8e9;color:#a93843}.pill.amber{background:#fbf0dc;color:#966015}.pill.green{background:#e4f3ee;color:#14735c}.pill.grey{background:#edf0f4;color:#657084}
+.chart{border:1px solid #e6e9ef;border-radius:5px;padding:20px 22px;margin:22px 0;background:#fff}
+.chart-title{font-size:15px;font-weight:750;color:#202b42}
+.chart-sub{font-size:11px;color:#7a8495;margin:3px 0 15px}
+.bars{display:flex;flex-direction:column;gap:12px}
+.barrow{display:grid;grid-template-columns:155px 1fr 54px;gap:12px;align-items:center;font-size:12px}
+.track{height:13px;background:#edf0f5;border-radius:2px;overflow:hidden}
+.fill{height:100%;background:linear-gradient(90deg,#3157d5,#24b8c7);border-radius:2px}
+.fill.warn{background:linear-gradient(90deg,#d18a20,#e9b85c)}
+.fill.red{background:linear-gradient(90deg,#bf4857,#e58a91)}
+.barval{text-align:right;font-weight:750;color:#27334c;font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:11px;color:#69758a;margin-top:13px}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--blue)}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:20px 0}
+.flow div{background:#f0f3f8;border-top:3px solid var(--blue);padding:14px 12px;font-size:12px;position:relative}
+.flow div:not(:last-child):after{content:"›";position:absolute;right:-9px;top:24px;color:#8b95a6;font-size:22px;z-index:2}
+.flow b{display:block;font-size:13px;margin-bottom:5px;color:#1d2b49}
+.scenarios{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.scenario{padding:20px;border:1px solid var(--line);border-top:4px solid var(--blue);background:#fff}
+.scenario.good{border-top-color:var(--green)}.scenario.bad{border-top-color:var(--red)}
+.scenario h4{margin:0 0 9px}
+.scenario ul{padding-left:18px;font-size:12px;color:#536078}
+.source{font-size:11px;color:#7a8495;margin:5px 0 16px}
+.source a{margin-right:8px}
+.footer{background:#111a30;color:#aebbd1;padding:32px 8.2%;font-size:11px}
+.footer strong{color:#fff}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+ul{padding-left:21px}
+li{margin:6px 0}
+@media(max-width:760px){
+ .hero{padding:48px 6% 40px}main{padding:0 6% 45px}nav{position:static;padding:13px 6%;gap:12px}
+ .span3,.span4,.span5,.span6,.span7,.span8{grid-column:span 12}
+ .metric{font-size:30px}.flow{grid-template-columns:1fr}.flow div:after{display:none}
+ .scenarios{grid-template-columns:1fr}.barrow{grid-template-columns:110px 1fr 42px}
+ h2{font-size:25px}
+}
+@media print{
+ body{background:#fff}.page{box-shadow:none;max-width:none}.hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ nav{display:none}section{break-inside:avoid}.card,.chart,.scenario{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="hero">
+  <div class="kicker">MACROECONOMICS · INDUSTRIALS · REAL ASSETS</div>
+  <h1>美国制造业、宏观经济<br>与商业地产风险监测</h1>
+  <div class="sub">增长真实性、金融脆弱性与房地产资本回报的综合评估</div>
+  <div class="hero-tag">UPGRADED PILOT REPORT · FIRST RUN</div>
+  <div class="hero-meta">
+    <div><b>报告基准日</b>2026年11月11日</div>
+    <div><b>研究范围</b>美国宏观经济 · 制造业 · 金融风险 · CRE</div>
+    <div><b>研究方法</b>事实核查 · 反向论证 · 情景压力测试</div>
+  </div>
+</header>
+<nav>
+ <a href="#summary">执行摘要</a><a href="#growth">增长真实性</a><a href="#risk">金融风险</a><a href="#cre">商业地产</a><a href="#industry">行业分化</a><a href="#matrix">风险矩阵</a><a href="#scenarios">情景分析</a><a href="#watch">监测日历</a>
+</nav>
+<main>
+<section id="summary">
+ <div class="eyebrow">01 / Executive perspective</div>
+ <h2>执行摘要｜增长存在，脆弱性也存在</h2>
+ <p class="lead">截至2026年11月11日，美国经济仍有增长动力，制造业出现真实的局部扩张，工业地产租赁活动也明显改善。但景气调查、实际产出、成本压力、企业融资和房地产需求之间并不同步。现有数据不足以证明美国已进入稳固、广泛且可持续的制造业复苏周期。</p>
+ <div class="grid">
+  <div class="card span3"><div class="label">ISM制造业PMI · Oct</div><div class="metric blue">55.5</div><p>连续第10个月处于扩张区间；属于扩散指数，不代表产出增长率。</p></div>
+  <div class="card span3"><div class="label">制造业产能利用率 · Sep</div><div class="metric">75.9%</div><p>低于制造业长期均值78.2%，仍有闲置产能。</p></div>
+  <div class="card span3"><div class="label">ISM价格指数 · Oct</div><div class="metric red">75.2</div><p>生产成本压力突出，是当前最值得关注的风险信号之一。</p></div>
+  <div class="card span3"><div class="label">工业地产空置率 · CBRE Q3</div><div class="metric cyan">6.4%</div><p>同比下降20个基点；但在建供应仍达278M平方英尺。</p></div>
+ </div>
+ <div class="callout warn"><strong>核心判断</strong>美国目前最值得关注的风险，不是制造业完全没有增长，而是部分增长可能建立在高成本、高资本开支和高融资成本基础上。如果生产率、终端需求和资本回报无法兑现，局部繁荣可能转化为企业盈利和房地产资产负债表压力。</div>
+ <h3>本报告的分析纪律</h3>
+ <div class="grid">
+  <div class="card span3"><b>区分事实与判断</b><p>官方统计、企业公告、机构估算和分析推断分别标示。</p></div>
+  <div class="card span3"><b>区分已实现与预期</b><p>公告投资不等于实际支出；开工不等于投产；意向租赁不等于现金流。</p></div>
+  <div class="card span3"><b>正反证据对称</b><p>每个重要结论同时列示支持证据、反向证据及待验证事项。</p></div>
+  <div class="card span3"><b>不预设危机</b><p>多个指标相互印证并形成传导后，才提高系统性风险判断。</p></div>
+ </div>
+</section>
+
+<section id="growth">
+ <div class="eyebrow">02 / Growth reality</div>
+ <h2>第一层｜经济增长真实性</h2>
+ <h3>2.1 宏观经济：GDP增长加快，但增长结构需要拆解</h3>
+ <p>BEA于2026年10月29日公布第三季度GDP初值。实际GDP折年增长3.4%，高于第二季度的2.2%；私人国内最终销售增长4.9%。增长主要受到投资、消费和政府支出推动，出口下降、进口增加抵消了部分增长。</p>
+ <table><thead><tr><th>指标</th><th>2026 Q3</th><th>2026 Q2</th><th>解读</th></tr></thead><tbody>
+ <tr><td>实际GDP折年增长率</td><td><b>3.4%</b></td><td>2.2%</td><td>增长加快；Q3为初值，后续可能修订</td></tr>
+ <tr><td>私人国内最终销售</td><td><b>4.9%</b></td><td>4.6%</td><td>最终国内需求表现较强</td></tr>
+ <tr><td>国内购买价格指数</td><td>3.0%</td><td>5.6%</td><td>价格增速放缓</td></tr>
+ <tr><td>PCE价格指数</td><td>2.1%</td><td>5.0%</td><td>价格增速放缓</td></tr>
+ <tr><td>核心PCE价格指数</td><td>2.5%</td><td>3.3%</td><td>仍需观察后续走势</td></tr>
+ </tbody></table>
+ <p class="small">注：上述价格指数及GDP增速均为季调折年率。不同指数定义不同，不宜混用。</p>
+ <div class="callout"><strong>反向检验：库存投资</strong>库存增加可能意味着企业为未来生产备货，也可能意味着销售不及预期、库存被动积累。必须结合最终销售、订单、出货和库存销售比判断，不能将库存增长自动视为利好。</div>
+
+ <h3>2.2 制造业景气：调查数据强，实际产出表现相对温和</h3>
+ <p>ISM 2026年10月制造业PMI为55.5，较9月的54.5上升1个百分点，连续第10个月扩张。但分项指标显示生产扩张强于新订单和就业，价格指数仍然高企。</p>
+ <div class="chart">
+  <div class="chart-title">ISM制造业主要分项指数｜2026年10月</div><div class="chart-sub">50为扩张与收缩分界线；指数不是百分比增速。</div>
+  <div class="bars">
+   <div class="barrow"><span>PMI</span><div class="track"><div class="fill" style="width:55.5%"></div></div><span class="barval">55.5</span></div>
+   <div class="barrow"><span>新订单</span><div class="track"><div class="fill" style="width:55.5%"></div></div><span class="barval">55.5</span></div>
+   <div class="barrow"><span>生产</span><div class="track"><div class="fill" style="width:59%"></div></div><span class="barval">59.0</span></div>
+   <div class="barrow"><span>就业</span><div class="track"><div class="fill" style="width:52.4%"></div></div><span class="barval">52.4</span></div>
+   <div class="barrow"><span>供应商交付</span><div class="track"><div class="fill" style="width:59.1%"></div></div><span class="barval">59.1</span></div>
+   <div class="barrow"><span>库存</span><div class="track"><div class="fill" style="width:51.4%"></div></div><span class="barval">51.4</span></div>
+   <div class="barrow"><span>价格</span><div class="track"><div class="fill red" style="width:75.2%"></div></div><span class="barval">75.2</span></div>
+   <div class="barrow"><span>未完成订单</span><div class="track"><div class="fill" style="width:54.6%"></div></div><span class="barval">54.6</span></div>
+  </div>
+  <div class="legend"><span><i class="dot"></i>扩张分项</span><span><i class="dot" style="background:#bf4857"></i>价格压力</span></div>
+ </div>
+ <table><thead><tr><th>指标</th><th>10月</th><th>9月</th><th>变化及含义</th></tr></thead><tbody>
+ <tr><td>PMI</td><td>55.5</td><td>54.5</td><td>扩张加快</td></tr><tr><td>新订单</td><td>55.5</td><td>55.3</td><td>略有改善</td></tr>
+ <tr><td>生产</td><td>59.0</td><td>56.7</td><td>生产活动明显增强</td></tr><tr><td>就业</td><td>52.4</td><td>52.7</td><td>仍扩张，但动能减弱</td></tr>
+ <tr><td>供应商交付</td><td>59.1</td><td>59.0</td><td>交付速度继续放慢</td></tr><tr><td>库存</td><td>51.4</td><td>48.6</td><td>从收缩转为扩张</td></tr>
+ <tr><td>客户库存</td><td>41.6</td><td>41.6</td><td>客户库存被认为偏低</td></tr><tr><td>价格</td><td><b>75.2</b></td><td>77.9</td><td>仍处于高位，成本上涨普遍</td></tr>
+ <tr><td>未完成订单</td><td>54.6</td><td>56.4</td><td>仍增长，但增速放缓</td></tr>
+ </tbody></table>
+ <p>生产指数上升2.3个百分点，而新订单仅上升0.2个百分点；就业指数小幅回落。生产改善可能来自现有员工效率、加班或设备利用率提升，但也意味着后续需求能否跟上生产值得观察。</p>
+
+ <h3>2.3 实际产出与产能利用率：尚未出现全面产能紧张</h3>
+ <p>联储G.17最新可用数据截至2026年9月，9月整体工业生产环比增长0.7%，第三季度折年增长2.8%；制造业产出环比增长0.3%，第三季度折年增长0.7%。整体工业产能利用率为76.9%，制造业为75.9%。</p>
+ <div class="chart">
+  <div class="chart-title">产能利用率与长期均值比较</div><div class="chart-sub">2026年9月；单位：%。两组分别与自身长期均值比较。</div>
+  <div class="bars">
+   <div class="barrow"><span>整体工业｜当前</span><div class="track"><div class="fill" style="width:76.9%"></div></div><span class="barval">76.9</span></div>
+   <div class="barrow"><span>整体工业｜均值</span><div class="track"><div class="fill" style="width:79.4%;background:#aab4c5"></div></div><span class="barval">79.4</span></div>
+   <div class="barrow"><span>制造业｜当前</span><div class="track"><div class="fill" style="width:75.9%"></div></div><span class="barval">75.9</span></div>
+   <div class="barrow"><span>制造业｜均值</span><div class="track"><div class="fill" style="width:78.2%;background:#aab4c5"></div></div><span class="barval">78.2</span></div>
+  </div>
+ </div>
+ <p>制造业产能利用率低于其长期均值约2.3个百分点，说明整体仍有闲置产能。这不等于制造业衰退，但不支持“全面产能紧张”的判断。联储安排于11月24日进行年度修订，历史数据可能调整。</p>
+
+ <h3>2.4 新订单、出货与库存：订单改善，仍需防范去库存反转</h3>
+ <table><thead><tr><th>制造业M3指标</th><th>2026年9月</th><th>环比</th></tr></thead><tbody>
+ <tr><td>新订单</td><td><b>$677.2B</b></td><td>+1.8%</td></tr><tr><td>出货</td><td>$668.5B</td><td>+1.3%</td></tr>
+ <tr><td>未完成订单</td><td>$1,623.8B</td><td>+0.9%</td></tr><tr><td>库存</td><td>$976.0B</td><td>+0.4%</td></tr>
+ <tr><td>库存/出货比</td><td>1.46</td><td>前值1.47</td></tr><tr><td>未完成订单/出货比</td><td>6.84</td><td>前值6.86</td></tr>
+ </tbody></table>
+ <p>新订单连续三个月增加，出货连续12个月中的11个月增长，说明实际交易活动有支撑。但库存已连续12个月增长。当前库存/出货比略降，尚未显示库存压力恶化；若后续库存持续快于出货增长，则需警惕被动累库和去库存。</p>
+
+ <h3>2.5 就业、工资与生产率：扩张尚未转化为广泛招聘</h3>
+ <p>BLS于11月6日公布的10月数据显示，制造业就业增加19,000人，其中计算机及电子产品制造增加7,000人、机械制造增加4,000人、初级金属制造增加4,000人。制造业平均每周工时40.5小时，加班3.1小时。</p>
+ <p>第三季度全经济非农商业部门劳动生产率初值增长3.6%，就业成本指数环比增长0.8%。生产率数据可以帮助判断企业是否能以效率提升抵消工资成本，但全经济生产率不能直接替代制造业生产率。</p>
+ <div class="callout warn"><strong>本层结论</strong>制造业活动扩张有实际订单和产出数据支持，但产能利用率偏低、就业增长集中、成本压力突出。现阶段更适合称为“结构性扩张”，不宜称为全面繁荣。</div>
+</section>
+
+<section id="risk">
+ <div class="eyebrow">03 / Financial vulnerability</div>
+ <h2>第二层｜金融与系统性风险</h2>
+ <h3>3.1 通胀风险：消费端有所缓和，生产端仍有压力</h3>
+ <p>BLS于11月10日公布10月CPI：总体CPI环比上涨0.4%，低于9月的0.6%；核心CPI环比上涨0.3%，与9月持平。食品环比上涨0.5%，能源上涨0.7%，住房上涨0.3%。由于2025年10月数据采集缺失，部分项目无法发布可靠的12个月同比数据，不应以其他月份数据代替。</p>
+ <p>另一方面，2026年9月最终需求PPI环比上涨1.3%、同比上涨6.3%，最终需求商品价格环比上涨2.6%。PPI与CPI统计口径不同，不应直接比较其数值；但生产端压力可能通过涨价或利润率压缩向下游传导。</p>
+ <div class="chart">
+  <div class="chart-title">生产端与消费端价格指标</div><div class="chart-sub">指标期间及频率不同，仅用于展示压力分布，不可直接作同口径比较。</div>
+  <div class="bars">
+   <div class="barrow"><span>PPI同比｜9月</span><div class="track"><div class="fill red" style="width:63%"></div></div><span class="barval">6.3%</span></div>
+   <div class="barrow"><span>PPI环比｜9月</span><div class="track"><div class="fill warn" style="width:13%"></div></div><span class="barval">1.3%</span></div>
+   <div class="barrow"><span>CPI环比｜10月</span><div class="track"><div class="fill" style="width:4%"></div></div><span class="barval">0.4%</span></div>
+   <div class="barrow"><span>核心CPI环比｜10月</span><div class="track"><div class="fill" style="width:3%"></div></div><span class="barval">0.3%</span></div>
+  </div>
+ </div>
+ <div class="flow">
+  <div><b>成本上升</b>能源、原材料、运输、关税</div>
+  <div><b>企业应对</b>涨价、压缩利润或削减支出</div>
+  <div><b>需求影响</b>消费能力与订单承压</div>
+  <div><b>经营调整</b>资本开支、招聘和库存变化</div>
+  <div><b>宏观传导</b>增长放缓或通胀黏性</div>
+ </div>
+
+ <h3>3.2 利率与融资环境：长期利率是CRE估值的重要约束</h3>
+ <p>联储H.15于11月10日公布的国债收益率数据显示，2年期约4.56%、5年期约4.67%、10年期约4.88%、20年期约5.29%、30年期约5.26%。长期收益率受到通胀预期、国债供给、期限溢价和增长预期共同影响，不能简单等同于美联储政策利率。</p>
+ <p>对CRE而言，长期收益率较高会提高投资者要求的风险补偿，增加贷款和债务服务成本，并可能压制资产估值。即使联储降息，长期利率也未必同步下降。</p>
+
+ <h3>3.3 企业利润：总量改善不能代表行业全面健康</h3>
+ <p>人口普查局制造业季度财务报告显示，2026年第二季度制造业企业税后利润为3,594亿美元，较第一季度增加641亿美元，较2025年同期增加1,438亿美元；同期销售额为2.324万亿美元。这是积极证据，但数据截至第二季度，不能直接代表第三季度或第四季度利润。第三季度企业利润数据预计11月25日随BEA GDP第二次估算公布。</p>
+
+ <h3>3.4 银行信贷：CRE贷款标准继续收紧</h3>
+ <p>联储2026年10月SLOOS调查显示，银行第三季度对建设及土地开发、非农非住宅、多户住宅等CRE贷款继续收紧标准，并报告相关贷款需求减弱。大型和中型企业C&I贷款标准总体基本不变，小企业贷款标准趋紧。</p>
+ <div class="callout danger"><strong>关键风险传导</strong>租赁市场改善不代表开发商和业主能够顺利获得融资。若贷款标准继续收紧，可能出现开发延期、债务展期、再融资失败及资产折价出售。</div>
+
+ <h3>3.5 CRE贷款逾期：风险存在，但尚不能称为全面危机</h3>
+ <table><thead><tr><th>贷款类别</th><th>2026 Q3逾期率</th><th>Q2</th><th>变化</th></tr></thead><tbody>
+ <tr><td>CMBS（30天及以上）</td><td><b>4.97%</b></td><td>4.82%</td><td><span class="pill red">上升</span></td></tr>
+ <tr><td>保险公司贷款</td><td>1.33%</td><td>1.19%</td><td><span class="pill amber">上升</span></td></tr>
+ <tr><td>GSE贷款</td><td>1.16%</td><td>1.11%</td><td><span class="pill amber">上升</span></td></tr>
+ <tr><td>FHA贷款</td><td>0.90%</td><td>1.06%</td><td><span class="pill green">下降</span></td></tr>
+ </tbody></table>
+ <p>MBA调查覆盖约3万亿美元贷款余额，约占2026年第二季度美国商业及多户住宅抵押贷款余额的59%。不同融资渠道表现分化，不能将CMBS逾期率直接外推为全行业违约率。</p>
+ <div class="callout"><strong>风险判断</strong>当前更接近资产类型与融资渠道分化，而不是所有CRE贷款同时发生危机。需要继续跟踪银行贷款损失、拨备、展期失败及债务到期情况。</div>
+</section>
+
+<section id="cre">
+ <div class="eyebrow">04 / Commercial real estate</div>
+ <h2>第三层｜商业地产投资与风险传导</h2>
+ <h3>4.1 工业地产：租赁改善，但未来供应不可忽视</h3>
+ <p>CBRE Q3 2026报告显示，工业地产Q3净吸纳量104.6M平方英尺，年初至今237.8M平方英尺；全国空置率6.4%，同比下降20bp；Q3租赁量276.8M平方英尺，同比增长27.1%；在建面积278M平方英尺，平均净要价租金为每平方英尺每年11.16美元。</p>
+ <table><thead><tr><th>指标</th><th>CBRE Q3 / YTD 2026</th><th>同比或比较</th></tr></thead><tbody>
+ <tr><td>Q3净吸纳量</td><td>104.6M sf</td><td>高于10年季度均值82.9M sf</td></tr>
+ <tr><td>YTD净吸纳量</td><td>237.8M sf</td><td>去年同期97.7M sf</td></tr>
+ <tr><td>全国空置率</td><td>6.4%</td><td>下降20bp</td></tr>
+ <tr><td>Q3租赁量</td><td>276.8M sf</td><td>+27.1%</td></tr>
+ <tr><td>YTD交付量</td><td>182.7M sf</td><td>-17%</td></tr>
+ <tr><td>在建面积</td><td>278M sf</td><td>+9.3%</td></tr>
+ <tr><td>净要价租金</td><td>$11.16/sf/year</td><td>+3.6%</td></tr>
+ </tbody></table>
+ <p>JLL Q3数据则显示租赁量202.6M平方英尺、同比增长38.5%；YTD净吸纳231.6M平方英尺；空置率6.8%，同比下降80bp；在建面积317M平方英尺；要价租金每平方英尺每年10.55美元，同比增长3.2%；YTD投资交易额953亿美元，工业地产Cap Rate约5.42%。</p>
+ <div class="chart">
+  <div class="chart-title">工业地产在建供应规模｜不同机构口径</div><div class="chart-sub">2026年第三季度；CBRE与JLL各自统计口径，分别展示，不可相加。</div>
+  <div class="bars">
+   <div class="barrow"><span>CBRE</span><div class="track"><div class="fill" style="width:87.7%"></div></div><span class="barval">278M</span></div>
+   <div class="barrow"><span>JLL</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="barval">317M</span></div>
+  </div>
+ </div>
+ <p>需求改善与开发管线扩大同时发生。如果未来需求继续增长，供应可能被吸收；若制造业投资、物流租赁或数据中心配套建设放缓，部分市场可能重新出现供过于求。全国平均空置率还会掩盖新旧物业、不同子市场和资产规格之间的差异。</p>
+
+ <h3>4.2 区域市场：吸纳量领先不等于风险最低</h3>
+ <table><thead><tr><th>市场</th><th>YTD净吸纳量</th><th>在建面积</th><th>初步观察</th></tr></thead><tbody>
+ <tr><td>Dallas–Fort Worth</td><td>23.6M sf</td><td>34.4M sf</td><td>需求领先，但供应管线也大</td></tr>
+ <tr><td>Houston</td><td>18.1M sf</td><td>18.4M sf</td><td>吸纳与在建规模相对接近</td></tr>
+ <tr><td>Atlanta</td><td>13.6M sf</td><td>本次摘要未列</td><td>需补充供应及子市场数据</td></tr>
+ <tr><td>Phoenix</td><td>本次摘要未列</td><td>20.5M sf</td><td>重点检验未来交付和预租</td></tr>
+ </tbody></table>
+ <p>不能仅凭吸纳量高就认定市场最适合投资。还需比较未来交付、预租率、租金激励、物业质量、租户信用和退出流动性。</p>
+
+ <h3>4.3 AI与半导体产业地产：公告投资不等于物业需求</h3>
+ <table><thead><tr><th>项目阶段</th><th>物业需求证据强度</th><th>应核实内容</th></tr></thead><tbody>
+ <tr><td>投资公告、政策意向</td><td><span class="pill grey">较弱</span></td><td>资金来源、董事会批准、约束条件</td></tr>
+ <tr><td>土地购置、审批完成</td><td><span class="pill amber">初步</span></td><td>土地用途、审批、基础设施可行性</td></tr>
+ <tr><td>项目开工、设备采购</td><td><span class="pill amber">中等</span></td><td>工程进度、设备交付、资本支出</td></tr>
+ <tr><td>工厂建成、设备安装</td><td><span class="pill amber">较强</span></td><td>电力接入、调试、投产时间</td></tr>
+ <tr><td>投产、供应商进驻</td><td><span class="pill green">强</span></td><td>实际产量、就业兑现、供应商订单</td></tr>
+ <tr><td>产能利用率与就业提升</td><td><span class="pill green">持续性证据</span></td><td>客户订单、现金流、长期租赁</td></tr>
+ </tbody></table>
+ <p>Micron宣布的长期美国投资计划超过2,500亿美元，但这不是已经支出的资本开支。美国半导体行业协会公布的项目承诺总额也必须逐项核实。AI与半导体产业地产还受到电力、工业用水、冷却系统、设备交付、建设成本和租户集中度影响。</p>
+ <div class="callout warn"><strong>自用物业与第三方出租物业必须分开</strong>制造企业自用厂房建设面积不能直接计入第三方工业地产租赁吸纳。自用项目可能带动周边供应商、仓储和服务需求，但其自身不是第三方房东的租赁现金流。</div>
+
+ <h3>4.4 产业投资到房地产现金流的传导链</h3>
+ <div class="flow">
+  <div><b>资本承诺</b>公告、融资和审批</div>
+  <div><b>开工建设</b>土地、工程、设备</div>
+  <div><b>投产运营</b>产量、就业、供应链</div>
+  <div><b>真实租赁</b>第三方租赁与租户付款</div>
+  <div><b>资产回报</b>租金、NOI、估值及退出</div>
+ </div>
+ <p>每一阶段都有失败或延期可能。投资分析应把公告金额、实际资本开支、建成产能、产能利用率和实际租赁需求分别记录。</p>
+
+ <h3>4.5 Cap Rate敏感性：估值对退出收益率变化高度敏感</h3>
+ <p>假设某工业物业年NOI固定为1,000万美元，采用直接资本化法估值。以下仅为公式敏感性示例，并非真实成交价格或市场预测。</p>
+ <div class="chart">
+  <div class="chart-title">工业物业估值对Cap Rate变化的敏感性</div><div class="chart-sub">假设NOI = $10M；价值 = NOI ÷ Cap Rate。</div>
+  <div class="bars">
+   <div class="barrow"><span>5.00%</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="barval">$200.0M</span></div>
+   <div class="barrow"><span>5.25%</span><div class="track"><div class="fill" style="width:95.2%"></div></div><span class="barval">$190.5M</span></div>
+   <div class="barrow"><span>5.50%</span><div class="track"><div class="fill" style="width:90.9%"></div></div><span class="barval">$181.8M</span></div>
+   <div class="barrow"><span>5.75%</span><div class="track"><div class="fill warn" style="width:86.9%"></div></div><span class="barval">$173.9M</span></div>
+   <div class="barrow"><span>6.00%</span><div class="track"><div class="fill warn" style="width:83.3%"></div></div><span class="barval">$166.7M</span></div>
+   <div class="barrow"><span>6.25%</span><div class="track"><div class="fill red" style="width:80%"></div></div><span class="barval">$160.0M</span></div>
+  </div>
+ </div>
+ <p>Cap Rate从5.5%升至6.0%，在NOI不变的条件下估值下降约8.3%。如果经济放缓同时导致NOI下降，估值将受到双重冲击。</p>
+ <h3>4.6 CRE债务风险：必须逐笔检查资产负债表</h3>
+ <ul>
+  <li>贷款到期时间、当前利率与再融资利率；</li>
+  <li>LTV、DSCR及贷款契约余量；</li>
+  <li>是否需要追加权益资本，贷款人是否愿意展期；</li>
+  <li>租户集中度、租约剩余期限和续租风险；</li>
+  <li>租赁激励、维修资本支出、物业税和保险成本；</li>
+  <li>退出Cap Rate、交易流动性及潜在折价出售。</li>
+ </ul>
+</section>
+
+<section id="industry">
+ <div class="eyebrow">05 / Sector divergence</div>
+ <h2>行业分化与资本开支质量</h2>
+ <table><thead><tr><th>行业</th><th>增长支持因素</th><th>主要风险</th></tr></thead><tbody>
+ <tr><td>半导体</td><td>本土化投资、AI芯片需求、供应链建设</td><td>资本开支过大、周期性供需失衡、项目延期</td></tr>
+ <tr><td>计算机及电子产品</td><td>服务器、网络设备、电子元件需求</td><td>AI资本开支集中度、产品价格和技术迭代</td></tr>
+ <tr><td>机械设备</td><td>设备投资、自动化需求</td><td>投资意愿受利率和利润预期影响</td></tr>
+ <tr><td>航空航天与国防</td><td>国防预算、长期订单、供应链需求</td><td>交付周期、成本超支、预算约束</td></tr>
+ <tr><td>汽车</td><td>供应链调整、技术升级</td><td>需求波动、融资成本、传统产能调整</td></tr>
+ <tr><td>钢铁及金属</td><td>基建、能源、电气化和制造业建设</td><td>能源成本、进口竞争、关税、周期性需求</td></tr>
+ <tr><td>传统耐用品</td><td>设备更新、部分消费需求</td><td>消费放缓、库存调整、价格竞争</td></tr>
+ <tr><td>非耐用品</td><td>食品、化工和日常消费</td><td>原材料价格、消费结构变化、利润率压力</td></tr>
+ </tbody></table>
+ <h3>AI资本开支：增长引擎还是潜在过度投资？</h3>
+ <div class="grid">
+  <div class="card span4"><div class="label">兑现率</div><h4>宣布的投资有多少真正支出？</h4><p>逐年核查资本开支、设备采购、工程进度和项目延期。</p></div>
+  <div class="card span4"><div class="label">资产利用率</div><h4>建成设施是否充分使用？</h4><p>跟踪数据中心IT负载、芯片工厂产能利用率和设备使用效率。</p></div>
+  <div class="card span4"><div class="label">资本回报</div><h4>新增现金流能否覆盖投入？</h4><p>比较新增收入、经营现金流、折旧、利息和维护资本支出。</p></div>
+ </div>
+ <p>如果资本开支增长很快，但AI应用收入、云服务收入和实际算力利用率增长较慢，就可能形成过度投资。这并不意味着AI需求必然崩溃，而是资本开支增长本身不能证明投资回报已经得到验证。</p>
+ <h3>贸易、关税与供应链风险</h3>
+ <p>关税可能保护部分本土制造业、刺激生产环节转移，也可能提高进口中间品、原材料和设备成本。判断制造业回流是否真正提高竞争力，应同时观察本土供应链配套、进口中间品成本、产品售价、出口竞争力、实际资本开支和企业利润率。如果项目长期依赖补贴和保护性关税，其商业可持续性需要审慎评估。</p>
+</section>
+
+<section id="matrix">
+ <div class="eyebrow">06 / Risk dashboard</div>
+ <h2>风险预警矩阵｜哪些风险已经出现？</h2>
+ <p>以下为基于当前可观察数据的定性等级，不代表统计模型计算出的危机概率。</p>
+ <table><thead><tr><th>风险类别</th><th>当前等级</th><th>主要证据</th><th>下一步验证</th></tr></thead><tbody>
+ <tr><td>制造业增长不均衡</td><td><span class="pill amber">关注</span></td><td>PMI扩张，但产能利用率低于长期均值</td><td>传统行业产出、就业和工时</td></tr>
+ <tr><td>生产成本上升</td><td><span class="pill red">警戒</span></td><td>PPI同比6.3%，ISM价格指数75.2</td><td>10月PPI、企业利润率</td></tr>
+ <tr><td>通胀反弹</td><td><span class="pill amber">关注</span></td><td>CPI环比仍上涨，核心CPI连续增长</td><td>核心通胀、工资、能源</td></tr>
+ <tr><td>AI投资回报</td><td><span class="pill amber">关注</span></td><td>投资集中度高，建设周期长</td><td>实际资本开支、利用率、ROI</td></tr>
+ <tr><td>企业融资条件</td><td><span class="pill amber">关注</span></td><td>CRE及小企业贷款标准趋紧</td><td>企业违约、银行贷款损失</td></tr>
+ <tr><td>CRE再融资</td><td><span class="pill red">警戒</span></td><td>贷款标准收紧，部分逾期率上升</td><td>债务到期、展期及再融资情况</td></tr>
+ <tr><td>工业地产供应</td><td><span class="pill amber">关注</span></td><td>在建面积仍大，建设管线扩大</td><td>子市场交付、预租和净吸纳</td></tr>
+ <tr><td>财政及长期利率</td><td><span class="pill amber">关注</span></td><td>长期国债收益率接近5%</td><td>国债供给、期限溢价、利率预期</td></tr>
+ <tr><td>全面金融危机</td><td><span class="pill grey">尚未确认</span></td><td>尚无充分证据证明系统性传导</td><td>银行资本、流动性和违约扩散</td></tr>
+ </tbody></table>
+ <div class="callout danger"><strong>当前最值得提高警惕的三个领域</strong>生产成本和通胀压力；CRE债务再融资；AI资本开支兑现与回报。警戒表示已有现实证据需要持续追踪，并不代表系统性危机已经发生。</div>
+</section>
+
+<section id="scenarios">
+ <div class="eyebrow">07 / Scenario analysis</div>
+ <h2>三种经济情景｜以可观察条件检验，而非预设概率</h2>
+ <div class="scenarios">
+  <div class="scenario">
+   <h4>基准情景｜增长延续、分化加大</h4>
+   <ul>
+    <li>消费和企业投资保持增长但放缓</li>
+    <li>AI、半导体、机械及国防继续提供支撑</li>
+    <li>通胀缓和但长期利率相对高位</li>
+    <li>工业地产继续修复，融资仍审慎</li>
+   </ul>
+   <p><b>可能结果：</b>经济不立即衰退，但资产回报更依赖购买价格、质量和融资结构。</p>
+  </div>
+  <div class="scenario good">
+   <h4>乐观情景｜投资转化为生产率与现金流</h4>
+   <ul>
+    <li>AI及半导体资本开支按计划兑现</li>
+    <li>工厂如期投产、产能利用率提高</li>
+    <li>生产率提高快于工资和投入成本</li>
+    <li>核心通胀缓和、长期利率下降</li>
+    <li>工业地产供应低于真实需求增长</li>
+   </ul>
+   <p><b>可能结果：</b>增长由少数行业扩散，制造业就业、供应链和工业物业现金流改善。</p>
+  </div>
+  <div class="scenario bad">
+   <h4>压力情景｜成本、利率和回报同时恶化</h4>
+   <ul>
+    <li>能源、运输、金属及电子元件继续涨价</li>
+    <li>通胀反弹，长期利率维持高位</li>
+    <li>AI项目延期或资本开支放缓</li>
+    <li>订单减弱、库存相对出货上升</li>
+    <li>CRE再融资困难、供应超过需求</li>
+   </ul>
+   <p><b>可能结果：</b>利润率下降、项目延期、租赁需求减弱，NOI与估值承压，违约和折价出售增加。</p>
+  </div>
+ </div>
+ <h3>压力情景下的CRE传导链</h3>
+ <div class="flow">
+  <div><b>资本开支削减</b>工厂扩建及配套项目延期</div>
+  <div><b>租赁需求减弱</b>工业及物流物业吸纳放缓</div>
+  <div><b>经营现金流承压</b>空置率上升、租金优惠增加</div>
+  <div><b>估值下跌</b>NOI下降、Cap Rate上升</div>
+  <div><b>债务压力</b>LTV、DSCR恶化，再融资困难</div>
+ </div>
+ <h3>反向论证｜乐观判断可能错在哪里？</h3>
+ <table><thead><tr><th>乐观判断</th><th>可能的错误假设</th><th>反向证据</th></tr></thead><tbody>
+ <tr><td>PMI扩张意味着复苏稳固</td><td>把企业调查当作实际产出</td><td>产出、订单、就业同步恶化</td></tr>
+ <tr><td>新订单增长意味着需求强劲</td><td>忽略取消订单和库存变化</td><td>未完成订单下降、库存/出货比上升</td></tr>
+ <tr><td>AI投资将持续增长</td><td>假设算力需求与资本开支同步增长</td><td>项目延期、利用率下降、现金流不足</td></tr>
+ <tr><td>工业地产需求改善</td><td>假设当前吸纳量可以延续</td><td>供应交付增加、预租率下降</td></tr>
+ <tr><td>工业地产估值稳定</td><td>假设Cap Rate不会继续上升</td><td>国债收益率上升、交易折价扩大</td></tr>
+ <tr><td>CRE风险可控</td><td>假设逾期不会进一步扩散</td><td>展期失败、拨备和贷款损失上升</td></tr>
+ </tbody></table>
+ <p><b>反向结论：</b>美国经济增长和金融风险可以同时存在。经济增长不能自动消除债务问题，制造业投资也不能自动保证投资回报。</p>
+</section>
+
+<section id="watch">
+ <div class="eyebrow">08 / Forward monitoring</div>
+ <h2>未来一个月的数据监测日历</h2>
+ <table><thead><tr><th>预计发布日期</th><th>数据</th><th>核心观察问题</th></tr></thead><tbody>
+ <tr><td>11月13日</td><td>BLS 10月PPI</td><td>生产端成本是否继续上涨</td></tr>
+ <tr><td>11月17日</td><td>Fed G.17 10月数据</td><td>制造业产出、产能利用率</td></tr>
+ <tr><td>11月24日</td><td>Fed工业生产年度修订</td><td>历史制造业产出是否明显修订</td></tr>
+ <tr><td>11月25日</td><td>BEA Q3 GDP第二次估算及企业利润</td><td>库存、设备投资和利润变化</td></tr>
+ <tr><td>12月3日</td><td>Census 10月M3</td><td>新订单、出货、库存是否持续扩张</td></tr>
+ <tr><td>12月4日</td><td>BLS 11月就业</td><td>制造业就业、工时和加班</td></tr>
+ <tr><td>12月10日</td><td>BLS 11月CPI</td><td>通胀是否继续缓和</td></tr>
+ <tr><td>12月11日</td><td>下一次月度报告</td><td>整合最新数据、修订及风险变化</td></tr>
+ </tbody></table>
+ <p class="small">日期按报告基准日可查的官方发布安排列示；如政府停摆、统计延迟或官方调整，后续报告应更新日期。</p>
+ <h3>每月固定风险监测指标</h3>
+ <table><thead><tr><th>风险类别</th><th>核心指标</th><th>需要识别的信号</th></tr></thead><tbody>
+ <tr><td>制造业衰退</td><td>新订单、产出、就业、工时、未完成订单</td><td>多个指标持续收缩</td></tr>
+ <tr><td>企业盈利恶化</td><td>PPI、单位劳动成本、利润率、违约</td><td>成本上升且利润率下降</td></tr>
+ <tr><td>通胀反弹</td><td>能源、运输、关税、核心PCE、通胀预期</td><td>生产端向消费端传导</td></tr>
+ <tr><td>投资过热</td><td>AI资本开支、项目延期、利用率、资本回报</td><td>支出增长明显快于需求与现金流</td></tr>
+ <tr><td>信贷风险</td><td>高收益债利差、企业贷款拖欠、贷款标准</td><td>融资收紧与违约同步上升</td></tr>
+ <tr><td>CRE风险</td><td>债务到期、DSCR、空置率、供应、Cap Rate</td><td>NOI下降且再融资成本上升</td></tr>
+ <tr><td>金融系统风险</td><td>银行CRE敞口、拨备、贷款损失、流动性</td><td>风险由个别资产扩散至机构层面</td></tr>
+ </tbody></table>
+</section>
+
+<section id="conclusion">
+ <div class="eyebrow">09 / Conclusion</div>
+ <h2>综合结论｜增长与脆弱性并存</h2>
+ <div class="grid">
+  <div class="card span6"><div class="label">宏观经济</div><h4>增长仍在，但结构需要拆解</h4><p>GDP表现较好，库存、设备投资和政府支出的贡献需要继续检验，不能把GDP增长等同于制造业全面复苏。</p></div>
+  <div class="card span6"><div class="label">制造业</div><h4>局部扩张，不是全面繁荣</h4><p>订单与生产改善，但产能利用率偏低，就业增长集中，价格压力突出。</p></div>
+  <div class="card span6"><div class="label">金融环境</div><h4>融资约束仍是重要风险</h4><p>长期利率较高，银行CRE贷款标准收紧，部分CRE逾期率上升。</p></div>
+  <div class="card span6"><div class="label">商业地产</div><h4>需求改善不等于回报改善</h4><p>未来供应、租户质量、融资成本、Cap Rate和债务到期决定实际投资回报。</p></div>
+ </div>
+ <p class="lead">真正需要持续检验的是：新订单能否转化为出货和销售；利润率能否抵御成本上升；AI投资能否兑现并产生现金流；长期利率是否继续压制融资；CRE债务到期是否形成新的流动性和违约问题；工业地产新增供应能否被真实租赁需求消化。</p>
+ <div class="callout"><strong>最终研究原则</strong>不能因为经济数据表现良好就弱化风险，也不能为了寻找危机信号而刻意放大负面因素。让数据决定结论，并清楚区分已发生的事实、合理推断和仍待验证的风险。</div>
+</section>
+
+<section id="limitations">
+ <div class="eyebrow">10 / Data notes</div>
+ <h2>数据质量、口径与局限</h2>
+ <ul>
+  <li><b>制造业产出：</b>最新G.17数据截至9月；10月数据尚未发布，11月24日年度修订可能调整历史序列。</li>
+  <li><b>制造业订单：</b>M3最新数据截至9月；10月数据预计12月3日公布。</li>
+  <li><b>通胀：</b>10月CPI已公布，但同比比较存在2025年10月数据缺失问题；10月PPI尚未公布。</li>
+  <li><b>企业利润：</b>当前可用制造业季度财务数据截至第二季度；第三季度利润等待BEA公布。</li>
+  <li><b>商业地产：</b>CBRE与JLL统计口径不同；本次未取得全部市场逐物业租赁、预租率和贷款到期数据。</li>
+  <li><b>AI投资：</b>企业公告金额不作为已实现资本开支；项目进度、产能利用率和投资回报需逐项核实。</li>
+  <li><b>金融风险：</b>MBA调查并不覆盖全部CRE贷款，不能直接推断全行业违约率。</li>
+ </ul>
+ <h3>本报告引用的主要数据来源</h3>
+ <p class="small">本报告以报告基准日可获得的官方统计和机构研究为基础。以下为主要发布机构及资料名称，建议在正式投资决策前打开原始发布页面复核最新版本、修订及统计口径。</p>
+ <table><thead><tr><th>机构</th><th>资料 / 数据集</th><th>主要用途</th></tr></thead><tbody>
+  <tr><td>BEA</td><td>第三季度GDP初值、GDP by Industry、企业利润</td><td>宏观增长、行业增加值、利润</td></tr>
+  <tr><td>Federal Reserve</td><td>G.17 Industrial Production；H.15；SLOOS</td><td>工业产出、产能、收益率、信贷标准</td></tr>
+  <tr><td>U.S. Census Bureau</td><td>Manufacturers’ Shipments, Inventories and Orders (M3)</td><td>新订单、出货、未完成订单及库存</td></tr>
+  <tr><td>ISM</td><td>October 2026 Manufacturing PMI Report</td><td>制造业景气调查及分项扩散指数</td></tr>
+  <tr><td>BLS</td><td>CPI、PPI、Employment Situation、Productivity、ECI</td><td>通胀、就业、工资及生产率</td></tr>
+  <tr><td>CBRE / JLL</td><td>Q3 2026 U.S. Industrial Market Reports</td><td>工业地产租赁、吸纳、空置、供应及租金</td></tr>
+  <tr><td>MBA</td><td>Q3 2026 Commercial/Multifamily Delinquency Survey</td><td>CRE贷款逾期表现</td></tr>
+  <tr><td>Micron / SIA</td><td>美国半导体投资公告与项目统计</td><td>产业投资承诺、项目建设及兑现跟踪</td></tr>
+ </tbody></table>
+ <p class="small">注：本HTML版本保留了报告中的主要数值、分析、表格和图形。正式引用或投资决策应以各机构原始发布文件为准；机构统计可能因覆盖范围、定义和修订机制而不同。</p>
+</section>
+</main>
+<footer class="footer">
+ <strong>美国制造业、宏观经济与商业地产风险监测报告</strong><br>
+ 升级版第一次试运行 · 2026年11月11日<br><br>
+ 本报告用于宏观研究、风险识别与投资分析讨论，不构成证券、房地产或信贷投资建议。所有情景均为条件分析，不代表预测或承诺。
+</footer>
+</div>
+</body>
+</html>

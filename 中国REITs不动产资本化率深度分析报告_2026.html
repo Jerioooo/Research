@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>中国REITs指数之不动产资本化率深度分析报告</title>
+<style>
+:root{--navy:#0b1f3a;--navy2:#13315c;--ink:#1c2430;--mute:#5d6878;--rule:#d5dae1;--bg:#f5f6f8;--paper:#fff;--gold:#b08d4a;--red:#a4262c;--grn:#1f6f4a;--blue:#2f5d9e}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.85 "Helvetica Neue","PingFang SC","Microsoft YaHei","Noto Sans SC",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.serif,h1,h2,h3,.kpi b{font-family:"Georgia","Songti SC","Noto Serif SC","Source Han Serif SC","SimSun",serif}
+.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;border-bottom:2px solid var(--gold)}
+.top div{max-width:1240px;margin:auto;padding:0 24px;height:48px;display:flex;align-items:center;justify-content:space-between;font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.top span:last-child{opacity:.7;letter-spacing:.06em;text-transform:none}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border:1px solid rgba(176,141,74,.45);border-radius:50%;box-shadow:0 0 0 60px rgba(255,255,255,.025),0 0 0 120px rgba(255,255,255,.02)}
+.hero .in{max-width:1240px;margin:auto;padding:72px 24px 56px;position:relative;z-index:1}
+.eyebrow{color:var(--gold);letter-spacing:.3em;font-size:12px;font-weight:700;display:flex;align-items:center;gap:14px}
+.eyebrow:before{content:"";width:36px;height:2px;background:var(--gold)}
+h1{font-size:clamp(28px,4.4vw,46px);line-height:1.3;margin:22px 0 14px;font-weight:700;max-width:860px}
+.sub{font-size:18px;opacity:.82;max-width:760px;margin:0 0 36px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:1px solid rgba(255,255,255,.2);max-width:980px}
+.meta div{padding:16px 24px 4px 0;font-size:14px;line-height:1.6}.meta small{display:block;color:var(--gold);letter-spacing:.14em;font-size:11px;margin-bottom:3px}
+.kpis{background:var(--paper);border-bottom:1px solid var(--rule)}
+.kpis .in{max-width:1240px;margin:auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.kpi{padding:26px 24px;border-right:1px solid var(--rule);line-height:1.4}.kpi:last-child{border:0}
+.kpi b{display:block;font-size:28px;color:var(--navy);font-weight:700;margin-bottom:6px}.kpi span{font-size:13px;color:var(--mute)}
+.wrap{max-width:1240px;margin:0 auto;padding:40px 24px 80px;display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px}
+nav.toc{position:sticky;top:72px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;font-size:13px;padding-right:8px;border-right:1px solid var(--rule)}
+nav.toc h6{margin:0 0 12px;font-size:11px;letter-spacing:.2em;color:var(--gold)}
+nav.toc a{display:flex;gap:10px;padding:6px 10px 6px 0;color:var(--mute);text-decoration:none;line-height:1.5;border-left:2px solid transparent;padding-left:10px}
+nav.toc a span{min-width:2.2em;color:var(--navy2);font-weight:700;font-family:Georgia,serif}
+nav.toc a:hover,nav.toc a.on{color:var(--navy);border-left-color:var(--gold);background:#fff}
+main{min-width:0}
+.upd-banner{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--rule);border-left:4px solid var(--gold);padding:16px 20px;margin-bottom:28px;font-size:14px}
+.upd-banner b{color:var(--navy)}.upd-banner a{margin-left:auto;white-space:nowrap;color:var(--navy2);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold)}
+.sec{background:var(--paper);border:1px solid var(--rule);padding:40px 48px 28px;margin-bottom:24px}
+.sh{display:flex;align-items:baseline;gap:18px;border-bottom:2px solid var(--navy);padding-bottom:14px;margin-bottom:24px}
+.sn{font-family:Georgia,"Songti SC",serif;color:var(--gold);font-size:22px;font-weight:700;min-width:2.4em}
+h2{margin:0;font-size:25px;line-height:1.4;color:var(--navy)}
+h3{font-size:18px;color:var(--navy);margin:32px 0 8px;padding-left:12px;border-left:3px solid var(--gold);line-height:1.5}
+h3 .n3{color:var(--gold);margin-right:4px;font-family:Georgia,serif}h4{font-size:16px;color:var(--navy2);margin:22px 0 4px}
+p{margin:0 0 14px;text-align:justify}
+ul{margin:4px 0 18px;padding:0;list-style:none}
+li{position:relative;padding:2px 0 2px 22px;margin-bottom:4px}li:before{content:"";position:absolute;left:3px;top:.95em;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
+li p{margin:0}
+.tw{overflow-x:auto;margin:18px 0 24px;border-top:2px solid var(--navy);border-bottom:1px solid var(--navy)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.55}
+th{background:#eef1f5;color:var(--navy);text-align:left;font-weight:700;padding:11px 14px;border-bottom:1px solid var(--navy);white-space:nowrap}
+td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top}tr:last-child td{border-bottom:0}tbody tr:hover{background:#fafbfc}
+td:first-child{font-weight:600;color:var(--navy)}td.num{font-variant-numeric:tabular-nums;white-space:nowrap}td.mute{color:#aab1bd}
+td.up{color:var(--red);font-weight:700}td.dn{color:var(--grn);font-weight:700}td.fl{color:var(--mute);font-weight:700}
+.dash{padding-bottom:36px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{border:1px solid var(--rule);padding:22px 24px;background:#fbfcfd}.card.wide{grid-column:1/-1}
+.card h5{margin:0 0 14px;font-size:13px;letter-spacing:.06em;color:var(--navy)}
+.legend{display:flex;gap:18px;font-size:12px;color:var(--mute);margin-bottom:14px}.legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+.o{background:var(--navy)}.r{background:var(--blue)}.h{background:var(--gold)}.i{background:#6f7d90}
+.rr{display:grid;grid-template-columns:210px 1fr;align-items:center;gap:14px;margin:7px 0;font-size:13px}
+.rt{position:relative;height:24px;background:repeating-linear-gradient(90deg,#e6e9ee 0 1px,transparent 1px 16.666%)}
+.bar{position:absolute;top:5px;height:14px;border-radius:1px}.rt b{position:absolute;top:3px;font-size:11px;color:var(--ink);transform:translateX(-120%);font-weight:600}.rt b.e{transform:translateX(30%)}
+.axis{position:relative;height:18px;margin-left:224px;font-size:11px;color:var(--mute)}.axis span{position:absolute;transform:translateX(-50%)}
+.hb{display:grid;grid-template-columns:96px 1fr 44px;gap:10px;align-items:center;font-size:13px;margin:8px 0}.hb div{height:10px;background:#e6e9ee}.hb i{display:block;height:100%;background:var(--navy)}.hb em{font-style:normal;text-align:right;font-weight:700;color:var(--navy)}
+.note{font-size:12px;color:var(--mute);margin:14px 0 0;line-height:1.6;text-align:left}
+.update{border-top:4px solid var(--gold);background:#fffdf8}.update .sh{border-color:var(--gold)}
+footer{background:var(--navy);color:#aeb9c9;font-size:12.5px;line-height:1.8}footer .in{max-width:1240px;margin:auto;padding:34px 24px}footer b{color:#fff}
+@media(max-width:1000px){.wrap{grid-template-columns:1fr}nav.toc{display:none}.kpis .in{grid-template-columns:repeat(2,1fr)}.kpi{border-bottom:1px solid var(--rule)}}
+@media(max-width:700px){.sec{padding:26px 20px 14px}.grid2{grid-template-columns:1fr}.rr{grid-template-columns:1fr;gap:2px}.axis{margin-left:0}h2{font-size:21px}.upd-banner{flex-wrap:wrap}.upd-banner a{margin-left:0}.hero .in{padding:48px 20px 36px}}
+@media print{.top,nav.toc,.upd-banner{display:none}.wrap{display:block;padding:0}.sec{break-inside:auto;border:0;padding:16px 0}body{background:#fff}.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body>
+<div class="top"><div><span>Research Brief · Real Estate Finance</span><span>2026年11月</span></div></div>
+<header class="hero"><div class="in">
+<div class="eyebrow">RESEARCH BRIEF</div>
+<h1>中国REITs指数之不动产资本化率深度分析报告</h1>
+<p class="sub">基于第六期调研数据的全面解读与趋势研判（2025-2026）</p>
+<div class="meta">
+<div><small>报告主题</small>中国不动产资本化率与REITs定价深度分析</div>
+<div><small>编制单位</small>研究团队（基于戴德梁行·中联基金·瑞思研究院数据）</div>
+<div><small>受众</small>机构投资者 / 监管机构 / 不动产金融从业者</div>
+<div><small>日期</small>2026年11月</div></div></div></header>
+<div class="kpis"><div class="in"><div class="kpi"><b>112</b><span>受访境内外机构</span></div><div class="kpi"><b>78 → 100</b><span>公募REITs数量（2025年底 → 2026年11月）</span></div><div class="kpi"><b>96%</b><span>2025年前三季度内资占比</span></div><div class="kpi"><b>+30–50 bp</b><span>多数业态较2024年抬升</span></div><div class="kpi"><b>4.9–5.5%</b><span>北京/上海长租公寓资本化率</span></div></div></div>
+<div class="wrap">
+<nav class="toc"><h6>目录 CONTENTS</h6><a href="#dashboard"><span>◆</span>关键数据一览</a><a href="#s1"><span>一</span>执行摘要</a><a href="#s2"><span>二</span>2025年中国内地不动产大宗交易市场概览</a><a href="#s3"><span>三</span>中国内地公募REITs市场与发行案例</a><a href="#s4"><span>四</span>第六期资本化率调研方法论与样本特征</a><a href="#s5"><span>五</span>各城市与业态资本化率详细成果</a><a href="#s6"><span>六</span>投资机会关注度与偏好分析</a><a href="#s7"><span>七</span>未来一年资本化率展望与趋势研判</a><a href="#s8"><span>八</span>公募REITs产品投资回报率期望</a><a href="#s9"><span>九</span>投资建议与策略启示</a><a href="#s10"><span>十</span>附录：数据来源与说明</a><a href="#s11"><span>十一</span>历史比较与资本化率演变轨迹</a><a href="#s12"><span>十二</span>分业态深度剖析与驱动因素</a><a href="#s13"><span>十三</span>公募REITs与一级市场的联动机制</a><a href="#s14"><span>十四</span>风险情景与压力测试思考</a><a href="#s15"><span>十五</span>结论与行动建议总结</a><a href="#s16"><span>十六</span>重点城市补充观察</a><a href="#s17"><span>十七</span>数据表补充与技术说明</a><a href="#s18"><span>十八</span>参考文献与数据来源</a><a href="#s19"><span>十九</span>买方与卖方行为差异的深层解读</a><a href="#s20"><span>二十</span>险资行为变化与“REITs化”配置逻辑</a><a href="#s21"><span>二十一</span>自用买家崛起的市场含义</a><a href="#s22"><span>二十二</span>土地使用年限问题的系统影响</a><a href="#s23"><span>二十三</span>区域分化与“核心-外围”策略</a><a href="#s24"><span>二十四</span>未来三年情景推演</a><a href="#s25"><span>二十五</span>给不同类型投资者的具体建议</a><a href="#s26"><span>二十六</span>监测框架与动态调整机制</a><a href="#s27"><span>二十七</span>结语</a><a href="#s28"><span>二十八</span>资本化率与宏观经济变量的联动</a><a href="#s29"><span>二十九</span>REITs二级市场与一级资本化率的传导机制</a><a href="#s30"><span>三十</span>不同持有期限投资者的策略差异</a><a href="#s31"><span>三十一</span>方法论反思与未来调研方向建议</a><a href="#s32"><span>三十二</span>附录：关键数据速查表</a><a href="#s33"><span>三十三</span>最终声明</a><a href="#s34"><span>三十四</span>补充：2025年典型交易案例的资本化率启示</a><a href="#s35"><span>三十五</span>政策演进与市场制度建设展望</a><a href="#s36"><span>三十六</span>研究局限与读者须知</a><a href="#update"><span>★</span>2026年11月修訂更新聲明</a></nav>
+<main>
+<div class="upd-banner"><b>2026年11月修訂版</b><span>已校正上海大宗交易內外資結構表述，並補充2026年最新動態與2027年預測。</span><a href="#update">查看修訂 →</a></div>
+
+<section id="dashboard" class="sec dash">
+<header class="sh"><span class="sn">◆</span><h2>关键数据一览</h2></header>
+<div class="grid2">
+<div class="card wide"><h5>2025年第四季度调研共识资本化率区间（%）</h5>
+<div class="legend"><span><i class="o"></i>办公</span><span><i class="r"></i>零售</span><span><i class="h"></i>住宿</span><span><i class="i"></i>工业</span></div>
+<div class="range"><div class="rr"><div class="rl">甲级写字楼 · 北京核心区</div><div class="rt"><i class="bar o" style="left:16.7%;width:30.0%"></i><b style="left:16.7%">5.0</b><b class="e" style="left:46.7%">5.9</b></div></div><div class="rr"><div class="rl">商务园区 · 北京核心区</div><div class="rt"><i class="bar o" style="left:46.7%;width:30.0%"></i><b style="left:46.7%">5.9</b><b class="e" style="left:76.7%">6.8</b></div></div><div class="rr"><div class="rl">购物中心 · 北京</div><div class="rt"><i class="bar r" style="left:23.3%;width:43.3%"></i><b style="left:23.3%">5.2</b><b class="e" style="left:66.7%">6.5</b></div></div><div class="rr"><div class="rl">社区商业 · 北京</div><div class="rt"><i class="bar r" style="left:40.0%;width:40.0%"></i><b style="left:40.0%">5.7</b><b class="e" style="left:80.0%">6.9</b></div></div><div class="rr"><div class="rl">奥特莱斯 · 北京</div><div class="rt"><i class="bar r" style="left:36.7%;width:33.3%"></i><b style="left:36.7%">5.6</b><b class="e" style="left:70.0%">6.6</b></div></div><div class="rr"><div class="rl">酒店 · 北京</div><div class="rt"><i class="bar h" style="left:40.0%;width:36.7%"></i><b style="left:40.0%">5.7</b><b class="e" style="left:76.7%">6.8</b></div></div><div class="rr"><div class="rl">长租公寓/服务式公寓 · 北京</div><div class="rt"><i class="bar h" style="left:13.3%;width:20.0%"></i><b style="left:13.3%">4.9</b><b class="e" style="left:33.3%">5.5</b></div></div><div class="rr"><div class="rl">仓储物流 · 一线城市</div><div class="rt"><i class="bar i" style="left:30.0%;width:30.0%"></i><b style="left:30.0%">5.4</b><b class="e" style="left:60.0%">6.3</b></div></div><div class="rr"><div class="rl">工业厂房 · 一线城市</div><div class="rt"><i class="bar i" style="left:40.0%;width:36.7%"></i><b style="left:40.0%">5.7</b><b class="e" style="left:76.7%">6.8</b></div></div><div class="axis"><span style="left:0.0%">4.5%</span><span style="left:16.7%">5.0%</span><span style="left:33.3%">5.5%</span><span style="left:50.0%">6.0%</span><span style="left:66.7%">6.5%</span><span style="left:83.3%">7.0%</span><span style="left:100.0%">7.5%</span></div></div>
+<p class="note">注：区间为买方与卖方意见重合部分；长租公寓低于核心区甲级写字楼下沿，为首次。数据来源：第六期调研，见第五章。</p></div>
+<div class="card"><h5>受访机构持有期限分布</h5><div class="hb"><span>3年以下</span><div><i style="width:17%"></i></div><em>8%</em></div><div class="hb"><span>3–6年</span><div><i style="width:100%"></i></div><em>48%</em></div><div class="hb"><span>6–9年</span><div><i style="width:38%"></i></div><em>18%</em></div><div class="hb"><span>9年以上</span><div><i style="width:54%"></i></div><em>26%</em></div><p class="note">样本：112家机构，内外资约4:1</p></div>
+<div class="card"><h5>公募REITs投资者最关注资产类型</h5><div class="hb"><span>消费基础设施</span><div><i style="width:100%"></i></div><em>30%</em></div><div class="hb"><span>租赁住房</span><div><i style="width:67%"></i></div><em>20%</em></div><div class="hb"><span>数据中心</span><div><i style="width:53%"></i></div><em>16%</em></div><div class="hb"><span>仓储物流</span><div><i style="width:40%"></i></div><em>12%</em></div><div class="hb"><span>产业园区</span><div><i style="width:27%"></i></div><em>8%</em></div><div class="hb"><span>清洁能源</span><div><i style="width:20%"></i></div><em>6%</em></div></div>
+</div></section>
+<section id="s1" class="sec"><header class="sh"><span class="sn">一</span><h2>执行摘要</h2></header>
+<p>2025年中国内地不动产大宗交易市场延续调整态势。前三季度北上广深成交总额约640亿元，成交单数105单，分别仅为上年全年的42%与48%。市场情绪谨慎，外资信心不足，内资占比攀升至历史峰值96%。机构投资者仍以险资为主，同时自用型买家与法拍“抄底”力量显著增强。交易资本化率整体呈现上升趋势。</p>
+<p>第六期中国REITs指数之不动产资本化率调研于2025年第四季度完成，共收到112家境内外专业机构问卷反馈。受访者覆盖私募基金、险资、开发商、境内外REITs管理人等，持有期限以3-6年为主（48%）。调研采用买方/卖方双视角，取重合区间作为共识资本化率。</p>
+<p>核心结论可概括为三点：</p>
+<ul>
+<li><p>多数业态资本化率较2024年抬升30-50个基点，反映租赁基本面承压与风险溢价上升。</p></li>
+<li><p>长租公寓/服务式公寓在一线城市资本化率（4.9%-5.5%）首次低于核心区甲级写字楼，成为机构最青睐业态之一；数据中心买卖双方估值区间显著收窄，成交意愿提升。</p></li>
+<li><p>未来一年市场整体持审慎态度：办公、产业园、物流、酒店、工业厂房资本化率预期继续上行；零售与长租公寓预期持平；数据中心预期下行（估值倍数上行）。</p></li>
+</ul>
+<p>公募REITs市场截至2025年底已上市78单，累计规模约2100亿元，产品数量亚洲第一。产权型产品主导发行，底层资产估值资本化率因业态、城市、土地剩余年限差异显著分化。REITs二级市场派息率与一级大宗交易资本化率形成相互锚定关系，正逐步完善中国不动产定价体系。</p>
+</section>
+<section id="s2" class="sec"><header class="sh"><span class="sn">二</span><h2>2025年中国内地不动产大宗交易市场概览</h2></header>
+<h3><span class="n3">2.1</span> 整体规模与资金结构</h3>
+<p>国内大宗交易规模自2018年后波动下降。宏观层面，全球增长放缓与房地产调控政策共同抑制了商业地产活跃度。2025年前三季度，内资机构投资额占比突破96%，几乎包揽主流交易，成为支撑流动性的核心力量。外资基金则因前期加息周期融资成本高企、部分资产收益率低于融资利率，以及LP到期退出压力，呈现“割肉离场”特征，上海市场尤为明显。</p>
+<p>险资作为最活跃机构投资者，交易模式发生深刻变化：从传统直接收购转向“基金收购+专业运营+REITs退出”闭环。典型案例包括阳光人寿通过私募基金联合收购48座万达广场资产包，以及中邮保险参与的京东-鼎晖物流资产包（约50亿元）。地方国企与非机构（自用企业、私人投资者）活跃度上升，法拍成为自用型买家重要“抄底”渠道。</p>
+<h3><span class="n3">2.2</span> 城市与业态结构</h3>
+<p>上海仍是内地大宗交易最主要城市，前三季度成交316亿元，北京101亿元，均大幅下滑。按物业类型，2022-2024年写字楼/商务园区占比长期超40%，2025年前三季度受办公市场低迷影响大幅回落；工业物流保持韧性（约20%左右）；零售与综合体占比上升至10%与15%。</p>
+<p>一线城市分市场特征鲜明：</p>
+<ul>
+<li><p>北京：自用型买家崛起，机构青睐数据中心与租赁住房。上半年成交96.3亿元，同比降59.7%。写字楼仍占主导，但租赁住房与数据中心成交额占比分别达24.1%与21.1%。</p></li>
+<li><p>上海：内资全数主导，投资者聚焦资产价值。上半年成交158亿元，同比降57%。公寓/住宅（含保租房）跃居第二，办公占比回落。</p></li>
+<li><p>深圳：成熟社区底商活跃，小体量交易主导。上半年单笔超亿元交易118.5亿元，同比增长109.8%，但扣除大额交易后平均体量显著缩小。</p></li>
+<li><p>广州：高性价比与增值潜力资产受关注，交易规模收缩，自用与国企主导工业资产。</p></li>
+</ul>
+</section>
+<section id="s3" class="sec"><header class="sh"><span class="sn">三</span><h2>中国内地公募REITs市场与发行案例</h2></header>
+<p>截至2025年底，沪深交易所上市REITs共78支，累计发行规模约2100亿元，其中产权型53单、规模约1135亿元（占比54%）。2024年发行29单创四年峰值，2025年产权型继续保持热度（18单、374亿元），已超越日本J-REITs产品数量。</p>
+<p>2025年新上市及扩募底层资产21单、对应36个项目，估值均采用收益法，资本化率以预测期首年NOI/估值计算。不同业态显著分化：</p>
+<h3><span class="n3">3.1</span> 主要业态估值资本化率区间（2025年上市/扩募）</h3>
+<div class="tw"><table>
+
+<thead>
+<tr>
+<th><strong>业态</strong></th>
+<th><strong>资本化率区间</strong></th>
+<th><strong>典型项目/备注</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>消费基础设施</td>
+<td class="num">5.8%-7.0%</td>
+<td>奥特莱斯（宁波杉井）达7.0%，因联营收入波动性较高</td>
+</tr>
+<tr>
+<td>仓储物流</td>
+<td class="num">5.6%-6.8%</td>
+<td>大湾区与华东活跃；较往年大宗交易显著上行</td>
+</tr>
+<tr>
+<td>产业园区</td>
+<td class="num">5.4%-9.2%</td>
+<td>上海约5.4%，沈阳6.3%；短土地年限项目显著抬升（如14-16年剩余年限）</td>
+</tr>
+<tr>
+<td>保障性租赁住房</td>
+<td class="num">4.5%-4.8%</td>
+<td>运营稳定、抗周期能力获认可，各业态中最低</td>
+</tr>
+<tr>
+<td>数据中心</td>
+<td class="num">7.5%-7.6%</td>
+<td>对应EBITDA倍数约12×-13×；2025年全新业态</td>
+</tr>
+</tbody>
+</table></div>
+<p>土地剩余使用年限对消费基础设施估值影响尤为显著。当前消费REITs底层资产剩余土地年限普遍19-32年，投资者对不足20年项目流动性担忧已传导至Pre-REITs市场，土地续期配套政策需求迫切。</p>
+<h3><span class="n3">3.2</span> 境内外REITs联动与跨境整合</h3>
+<p>新加坡与中国香港REITs在内地大宗交易活跃周期集中于2019-2021年，此后以出售为主。2024下半年至2025年三季度公开交易仅三笔典型案例：OUE-REIT出售上海力宝广场（净收益率5.70%）、丰树物流信托剥离西安物流园、凯德中国信托将长沙凯德广场·雨花亭跨境整合进入境内公募REITs（净收益率从2019年6.2%升至2025年7.26%，主要因土地年限缩短）。</p>
+<p>境内低息环境与REITs市场成熟推动发行人构建“境内+境外”多平台布局。招商局、顺丰等已在中港两地搭建多只REITs，境内平台分派收益率显著低于香港平台，凸显资金成本优势。部分港股上市商业地产开发商退市或聚焦境内REITs轻资产转型。</p>
+</section>
+<section id="s4" class="sec"><header class="sh"><span class="sn">四</span><h2>第六期资本化率调研方法论与样本特征</h2></header>
+<p>调研定义：资本化率 = 预计未来第一年稳定营运净收入（NOI，采用市场租金而非在签租金） / 当期市场交易价值。NOI为营运收入减去营运成本（不含利息、所得税、资本支出、折旧摊销）。</p>
+<p>问卷设置买方、卖方、二者兼有三类角色，取双方意见重合部分作为结论。资产类型覆盖甲级写字楼、商务园区、购物中心、社区商业、奥特莱斯、酒店、长租公寓/服务式公寓、仓储物流、工业厂房、数据中心（数据中心采用EV/EBITDA倍数）。城市维度因业态差异分层：写字楼细分核心/非核心商圈；零售覆盖至三四线；工业与数据中心按六大区域划分。</p>
+<p>样本：112家机构，内外资约4:1；私募基金约20%、险资22%、开发商16%。持有期限：3年以下8%、3-6年48%、6-9年18%、9年以上26%。</p>
+</section>
+<section id="s5" class="sec"><header class="sh"><span class="sn">五</span><h2>各城市与业态资本化率详细成果</h2></header>
+<h3><span class="n3">5.1</span> 办公类（甲级写字楼与商务园区）</h3>
+<p>甲级写字楼仍是国内大宗交易流动性最强、定价共识最充分的业态，常被用作其他资产风险溢价的基准。2025年机构关注度大幅下滑：北京/上海仅约20%受访者考虑投资，深圳/广州更低至10%/6%，较疫情前约80%显著回落。市场由机构主导转向自用买家主导。</p>
+<div class="tw"><table>
+
+<thead>
+<tr>
+<th><strong>城市/区域</strong></th>
+<th><strong>甲级写字楼</strong></th>
+<th><strong>商务园区</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>北京核心区</td>
+<td class="num">5.0%-5.9%</td>
+<td class="num">5.9%-6.8%</td>
+</tr>
+<tr>
+<td>北京非核心区</td>
+<td class="num">5.6%-6.7%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>上海核心区</td>
+<td class="num">5.0%-6.0%</td>
+<td class="num">5.8%-6.7%</td>
+</tr>
+<tr>
+<td>上海非核心区</td>
+<td class="num">5.5%-6.7%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>深圳核心区</td>
+<td class="num">5.2%-6.3%</td>
+<td class="num">6.1%-6.9%</td>
+</tr>
+<tr>
+<td>深圳非核心区</td>
+<td class="num">5.7%-6.8%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>广州核心区</td>
+<td class="num">5.6%-6.7%</td>
+<td class="num">6.3%-7.1%</td>
+</tr>
+<tr>
+<td>广州非核心区</td>
+<td class="num">6.0%-7.2%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>主要二线城市</td>
+<td class="num">6.8%-7.8%</td>
+<td class="num">6.9%-7.8%</td>
+</tr>
+</tbody>
+</table></div>
+<p>与2024年相比，甲级写字楼资本化率区间整体上升约50个基点。卖方区间普遍高于买方，显示卖方价格心理预期主动下调。一线城市商务园区资本化率与同城非核心区甲级写字楼接近（差异约20bps），整体较2024年上升30-40bps。主要二线城市办公与园区资本化率基本持平，反映写字楼供应过剩削弱其定价优势。</p>
+<h3><span class="n3">5.2</span> 零售类（购物中心、社区商业、奥特莱斯）</h3>
+<div class="tw"><table>
+
+<thead>
+<tr>
+<th><strong>城市层级</strong></th>
+<th><strong>购物中心</strong></th>
+<th><strong>社区商业</strong></th>
+<th><strong>奥特莱斯</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>北京</td>
+<td class="num">5.2%-6.5%</td>
+<td class="num">5.7%-6.9%</td>
+<td class="num">5.6%-6.6%</td>
+</tr>
+<tr>
+<td>上海</td>
+<td class="num">5.3%-6.4%</td>
+<td class="num">5.6%-6.8%</td>
+<td class="num">5.6%-6.6%</td>
+</tr>
+<tr>
+<td>深圳</td>
+<td class="num">5.3%-6.5%</td>
+<td class="num">5.7%-6.8%</td>
+<td class="num">5.8%-6.8%</td>
+</tr>
+<tr>
+<td>广州</td>
+<td class="num">5.6%-6.8%</td>
+<td class="num">6.1%-7.1%</td>
+<td class="num">5.9%-7.0%</td>
+</tr>
+<tr>
+<td>新一线城市</td>
+<td class="num">6.0%-7.2%</td>
+<td class="num">6.5%-7.6%</td>
+<td class="num">6.4%-7.5%</td>
+</tr>
+<tr>
+<td>主要二线城市</td>
+<td class="num">6.5%-7.8%</td>
+<td class="num">7.2%-8.5%</td>
+<td class="num">7.0%-8.2%</td>
+</tr>
+<tr>
+<td>三四线城市</td>
+<td class="num">7.4%-8.7%</td>
+<td class="num">7.9%-9.2%</td>
+<td class="num">8.0%-9.3%</td>
+</tr>
+</tbody>
+</table></div>
+<p>购物中心资本化率与2024年基本持平，北上韧性最强。社区商业因抗风险能力与租赁基本面较强，资本化率普遍比同城购物中心高约40bps。奥特莱斯一线城市区间较2024年下降20-30bps，与购物中心差距约50bps；随着更多奥莱资产进入公募REITs，流动性改善有望进一步压缩价差。卖方在零售定价上立场趋强（区间低于买方），与疫情后悲观心态形成反转。</p>
+<h3><span class="n3">5.3</span> 住宿类（酒店与长租公寓）</h3>
+<div class="tw"><table>
+
+<thead>
+<tr>
+<th><strong>城市</strong></th>
+<th><strong>酒店</strong></th>
+<th><strong>长租公寓/服务式公寓</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>北京</td>
+<td class="num">5.7%-6.8%</td>
+<td class="num">4.9%-5.5%</td>
+</tr>
+<tr>
+<td>上海</td>
+<td class="num">5.7%-6.7%</td>
+<td class="num">5.0%-5.5%</td>
+</tr>
+<tr>
+<td>深圳</td>
+<td class="num">5.7%-6.8%</td>
+<td class="num">5.1%-6.2%</td>
+</tr>
+<tr>
+<td>广州</td>
+<td class="num">5.8%-6.9%</td>
+<td class="num">5.3%-6.4%</td>
+</tr>
+<tr>
+<td>主要二线城市</td>
+<td class="num">6.8%-7.8%</td>
+<td class="num">5.9%-7.0%</td>
+</tr>
+</tbody>
+</table></div>
+<p>长租公寓/服务式公寓成为2025年机构最青睐业态之一。北京、上海关注度分别达61%、64%。一线城市资本化率首次低于核心区甲级写字楼，买卖双方区间接近，成交意愿高。北京因可交易标的稀缺，资本化率略低于上海。保租房REITs二级市场平均年化分红率约3%，有效打通“投融管退”闭环。险资几乎全员表达投资意愿；私募基金则聚焦“商改租”增值策略。</p>
+<p>酒店机构关注度仍低（北京/上海约30%）。机构要求回报显著高于写字楼与产业园，主要因GOP利润率仅30%-40%、品牌管理费、高Capex与有限运营控制权。个人/家族买家则更看重区位与品牌传承价值，可接受1.5%-3%的低回报。一线城市酒店资本化率约5.7%-6.9%，较同城长租公寓高60-100bps；二线城市再高约110bps。</p>
+<h3><span class="n3">5.4</span> 工业类（仓储物流、工业厂房、数据中心）</h3>
+<div class="tw"><table>
+
+<thead>
+<tr>
+<th><strong>区域</strong></th>
+<th><strong>仓储物流</strong></th>
+<th><strong>工业厂房</strong></th>
+<th><strong>数据中心 EBITDA倍数</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一线城市</td>
+<td class="num">5.4%-6.3%</td>
+<td class="num">5.7%-6.8%</td>
+<td>10.6x-12.7x</td>
+</tr>
+<tr>
+<td>环京区域</td>
+<td class="num">6.1%-7.0%</td>
+<td class="num">6.5%-7.5%</td>
+<td>9.6x-11.5x</td>
+</tr>
+<tr>
+<td>环沪区域</td>
+<td class="num">5.9%-6.7%</td>
+<td class="num">6.2%-7.1%</td>
+<td>9.6x-11.5x</td>
+</tr>
+<tr>
+<td>大湾区（除广深）</td>
+<td class="num">5.9%-6.4%</td>
+<td class="num">6.3%-7.1%</td>
+<td>9.2x-11.3x</td>
+</tr>
+<tr>
+<td>成渝区域</td>
+<td class="num">6.5%-7.3%</td>
+<td class="num">7.1%-7.8%</td>
+<td>8.8x-10.6x</td>
+</tr>
+<tr>
+<td>华中区域</td>
+<td class="num">6.8%-7.4%</td>
+<td class="num">7.4%-8.2%</td>
+<td>8.9x-10.9x</td>
+</tr>
+</tbody>
+</table></div>
+<p>仓储物流一线城市资本化率较2024年上升约40bps，反映供过于求与需求萎缩。环沪与大湾区（除广深）相对较低。工业厂房因定制化程度高、流动性弱于物流，同城资本化率高出约40bps，价差较往年扩大；环沪区域最受青睐。</p>
+<p>数据中心采用EBITDA倍数定价。买卖双方区间显著收窄趋同，成交意愿提升。一线城市10.6x-12.7x，环京/环沪最高。数据中心要求回报率较仓储物流高约2-3个百分点，反映运营复杂性、交易活跃度与认知门槛。随着公募与机构间REITs落地，流动性与定价透明度有望继续改善。</p>
+</section>
+<section id="s6" class="sec"><header class="sh"><span class="sn">六</span><h2>投资机会关注度与偏好分析</h2></header>
+<p>城市维度：北京、上海各类资产关注度最高，其次深圳、广州，再其次主要二线城市。非一线城市中，杭州以63%受访者选择（首要考虑40%）稳居首位，凭借数字经济+先进制造业“商办+工业”双轮驱动；成都、苏州、大湾区（除广深）、南京紧随其后。新一线城市零售关注度与一线差距进一步收窄。</p>
+<p>业态维度：长租公寓/服务式公寓在北京、上海成为核心关注，购物中心与商务园区次之，甲级写字楼关注度明显下降。酒店关注度有所反弹但仍处低位。数据中心作为2025年新晋业态受到险资等长线资金高度关注。</p>
+</section>
+<section id="s7" class="sec"><header class="sh"><span class="sn">七</span><h2>未来一年资本化率展望与趋势研判</h2></header>
+<p>2025年全球与中国货币政策均处宽松通道。美联储累计降息，联邦基金利率目标区间降至3.5%-3.75%；中国1年期与5年期以上LPR分别降至3.0%与3.5%。降息理论上利好不动产，但传导受经济增速放缓、核心行业承压、租赁需求收缩制约。</p>
+<p>调研显示，受访者对未来一年多数业态资本化率持上行预期（审慎偏保守）：</p>
+<div class="tw"><table>
+
+<thead>
+<tr>
+<th><strong>业态</strong></th>
+<th><strong>未来一年资本化率走势预期</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>甲级写字楼</td>
+<td class="up">↑ 上升</td>
+</tr>
+<tr>
+<td>商务园区</td>
+<td class="up">↑ 上升</td>
+</tr>
+<tr>
+<td>零售物业</td>
+<td class="fl">→ 持平</td>
+</tr>
+<tr>
+<td>酒店</td>
+<td class="up">↑ 上升</td>
+</tr>
+<tr>
+<td>长租公寓/服务式公寓</td>
+<td class="fl">→ 持平</td>
+</tr>
+<tr>
+<td>工业厂房</td>
+<td class="up">↑ 上升</td>
+</tr>
+<tr>
+<td>仓储物流</td>
+<td class="up">↑ 上升</td>
+</tr>
+<tr>
+<td>数据中心</td>
+<td class="dn">↓ 下降（EBITDA倍数上行）</td>
+</tr>
+</tbody>
+</table></div>
+<p>预测逻辑：</p>
+<ul>
+<li><p>办公与园区：供应过剩与企业“减量提质”需求持续，空置与租金压力难快速缓解，资本化率仍有上行空间。</p></li>
+<li><p>物流与工业：短期供需失衡与租金承压推动资本化率上行，但公募REITs退出通道提供支撑，极端下行风险有限。</p></li>
+<li><p>零售：社区商业与优质购物中心展现韧性，资本化率有望企稳；奥莱随REITs扩容流动性改善。</p></li>
+<li><p>长租公寓：政策支持+REITs闭环+稳定现金流，资本化率有望保持相对低位与稳定。</p></li>
+<li><p>数据中心：算力需求刚性、租约稳定、REITs定价锚出现，买卖双方共识增强，资本化率有望温和下行。</p></li>
+<li><p>酒店：机构参与度低，定价锚定弱，个人买家主导下资本化率波动较大，整体仍趋上行。</p></li>
+</ul>
+<h3><span class="n3">7.1</span> 中长期结构性趋势</h3>
+<p>第一，公募REITs定价锚作用强化。随着产品扩容至酒店、商业办公、城市更新等，一级市场与二级市场联动将更紧密，资本化率与派息率相互约束。</p>
+<p>第二，“基金+运营+REITs”模式成为险资等长线资金主流路径，降低直接持有运营负担，提升周转效率。</p>
+<p>第三，土地年限问题凸显，尤其消费与部分产业园资产。续期政策落地进度将显著影响估值与Pre-REITs流动性。</p>
+<p>第四，自用买家与机构买家定价逻辑持续分化。写字楼、酒店等业态机构定价参考意义下降，需区分交易主体解读资本化率。</p>
+<p>第五，区域分化加剧。核心城市核心资产仍享溢价，但非一线城市（尤其杭州、成都等）产业与消费韧性支撑下，优质资产关注度上升，风险溢价可能收窄。</p>
+</section>
+<section id="s8" class="sec"><header class="sh"><span class="sn">八</span><h2>公募REITs产品投资回报率期望</h2></header>
+<p>投资者最关注的资产类型依次为：消费基础设施（30%）、租赁住房（20%）、数据中心（16%）、仓储物流（12%）、产业园区（8%）、清洁能源（6%）。除资产估值外，最关注因素为运营管理机构能力（超60%）、二级市场流动性、国家政策导向。</p>
+<p>88%投资者认为资产混装（同所有权或经营收益权范围内）有利于提升投资价值，主要理由是分散单一行业周期风险与拓宽现金流来源。主要顾虑是加大估值难度与研判成本。</p>
+<p>期望分派率方面，保障性租赁住房与长租公寓较低（约4.2%-5.3%），消费基础设施与数据中心较高（约4.8%-6.2%）。当前多数板块二级价格上涨已推动实际分派率接近甚至低于期望下限。收益权类产品（高速、能源、环保、文旅、养老）期望IRR整体在6%以上区间，差异相对较小。</p>
+</section>
+<section id="s9" class="sec"><header class="sh"><span class="sn">九</span><h2>投资建议与策略启示</h2></header>
+<h3><span class="n3">9.1</span> 资产配置建议</h3>
+<ul>
+<li><p>核心配置：一线城市优质长租公寓/保租房、核心商圈成熟购物中心与社区商业。资本化率相对稳定，REITs退出路径清晰。</p></li>
+<li><p>积极关注：数据中心（尤其环京、环沪、一线），买卖双方共识增强，长期算力需求支撑，适合长线资金。</p></li>
+<li><p>精选参与：高标仓储物流与标准厂房，优先选择有REITs扩募潜力或核心城市周边、租约稳定的资产；回避纯投机性高空置项目。</p></li>
+<li><p>谨慎/回避：非核心区甲级写字楼与纯投资导向的商务园区，除非有明确自用需求或深度价值重塑能力；酒店除非家族传承或极度折价核心资产。</p></li>
+</ul>
+<h3><span class="n3">9.2</span> 交易与退出策略</h3>
+<ul>
+<li><p>优先采用“私募基金收购+专业运营+公募/机构间REITs退出”结构，匹配险资等机构风险偏好与流动性需求。</p></li>
+<li><p>密切跟踪C-REITs二级市场派息率与折溢价，作为一级交易定价的实时锚。</p></li>
+<li><p>关注土地剩余年限风险，优先选择年限较长或有明确续期预期的资产；对短年限项目要求额外风险溢价。</p></li>
+<li><p>自用与投资逻辑分离：对自用型交易，资本化率参考价值有限，更应关注区位、建筑品质与长期持有成本。</p></li>
+</ul>
+<h3><span class="n3">9.3</span> 风险提示</h3>
+<ul>
+<li><p>宏观经济与行业基本面修复速度不及预期，导致租金与入住率持续承压。</p></li>
+<li><p>供应过剩（尤其写字楼与部分物流）延续，资本化率上行超预期。</p></li>
+<li><p>政策不确定性（土地续期、税收、REITs扩容节奏）。</p></li>
+<li><p>利率环境变化与汇率波动对跨境资本与外资行为的影响。</p></li>
+</ul>
+</section>
+<section id="s10" class="sec"><header class="sh"><span class="sn">十</span><h2>附录：数据来源与说明</h2></header>
+<p>本报告主要数据与结论来源于《中国REITs指数之不动产资本化率调研报告（第六期）》（戴德梁行、中联基金、瑞思不动产金融研究院，2026年1月）。调研于2025年第四季度完成，样本112家机构。</p>
+<p>资本化率定义统一为：预计未来第一年稳定NOI（市场租金口径）/ 当期市场价值。数据中心采用EV/EBITDA倍数。所有区间为买方与卖方意见重合部分。</p>
+<p>市场交易数据来源于戴德梁行资本市场部，交易额不含土地收购及低于1亿元交易。公募REITs发行与估值数据来源于公开披露文件及戴德梁行整理。</p>
+<p>免责声明：本报告仅供研究参考，不构成任何投资建议。数据可能存在统计口径差异与滞后，使用者应独立判断并承担决策风险。</p>
+<p>报告完成日期：2026年11月。</p>
+</section>
+<section id="s11" class="sec"><header class="sh"><span class="sn">十一</span><h2>历史比较与资本化率演变轨迹</h2></header>
+<p>自2019年首期调研以来，中国不动产资本化率经历了完整的周期波动。2019-2021年疫情前与疫情初期，核心城市优质资产资本化率处于相对低位，反映低利率环境与充裕流动性。2022-2023年美元加息周期与国内经济调整叠加，资本化率开始系统性抬升。2024-2025年进一步确认上行趋势，尤其办公与物流板块。</p>
+<p>以北京、上海核心区甲级写字楼为例，早期调研区间多在4.5%-5.5%附近，2025年已抬升至5.0%-6.0%。长租公寓则呈现相对韧性，资本化率升幅明显小于办公，甚至在2025年实现与办公的“倒挂”（公寓更低）。这一结构性变化深刻反映了投资者风险偏好与资产抗周期能力的重估。</p>
+<p>物流仓储资本化率在2021-2022年曾因电商与供应链红利处于低位，2023年后随供应集中释放与需求增速放缓而快速上行。2025年一线城市5.4%-6.3%的区间，已接近甚至超过部分二线城市早期水平，显示市场定价已充分反映短期基本面压力。</p>
+<h3><span class="n3">11.1</span> 与国际市场的比较视角</h3>
+<p>与成熟REITs市场相比，中国内地当前资本化率水平整体仍高于美国、新加坡核心资产，但差距在收窄。美国全服务酒店长期交易资本化率中枢约7%-9%，有限服务酒店略低；办公与零售在利率上行周期中亦显著抬升。新加坡与中国香港REITs在内地资产的历史收购资本化率（净收益率）多在4.5%-6.5%区间，2024-2025年退出交易中可见5.7%-7.3%的水平，与境内调研共识基本吻合。</p>
+<p>中国市场的独特性在于：土地有限期使用制度、公募REITs仍处扩容早期、自用买家占比显著高于成熟市场、以及政策对保障性租赁住房与消费基础设施的倾斜支持。这些因素共同塑造了当前资本化率的绝对水平与相对结构。</p>
+</section>
+<section id="s12" class="sec"><header class="sh"><span class="sn">十二</span><h2>分业态深度剖析与驱动因素</h2></header>
+<h3><span class="n3">12.1</span> 甲级写字楼：结构性重构下的定价重塑</h3>
+<p>甲级写字楼市场正经历从“机构配置核心资产”向“自用为主+机构精选”的深刻转型。供应端，2018-2022年集中开工的项目在2023-2025年持续入市，核心城市空置率普遍处于历史高位区间。需求端，企业“降本增效”与混合办公模式普及导致净吸纳量长期低位。结果是租金下行或停滞，资本化率被迫上行以平衡投资者回报要求。</p>
+<p>机构投资者逻辑清晰：在租金增长预期弱化、退出流动性下降的环境下，必须要求更高的初始收益率。自用买家则完全不同——他们关注的是长期使用成本锁定、总部形象与资产保值，资本化率并非决策核心变量。因此，当前市场成交资本化率实际是“机构意愿区间”与“自用成交现实”的混合体，解读时必须区分主体。</p>
+<p>未来走势判断：只要供应消化与租金企稳尚未出现明确拐点，资本化率仍有上行压力。但核心区顶级资产（国贸、陆家嘴、福田等）因稀缺性与租户质量，升幅将显著小于非核心与二线城市。公募REITs若未来扩容至商业办公设施，有望为部分优质写字楼提供新的定价与退出锚。</p>
+<h3><span class="n3">12.2</span> 长租公寓：政策与REITs双轮驱动的确定性资产</h3>
+<p>长租公寓/服务式公寓在2025年完成了从“新兴业态”到“机构标配”的跨越。驱动因素包括：一是保障性租赁住房纳入公募REITs试点后，已有8单产品落地，二级市场分红表现稳定；二是核心城市租赁需求刚性，尤其青年人才与新市民群体；三是商改租政策与税收优惠降低改造成本；四是相对办公更低的运营复杂度与更稳定的现金流。</p>
+<p>资本化率4.9%-5.5%（北京/上海）的水平，已低于核心区甲级写字楼，这是市场用真金白银对“抗周期+政策支持+退出通畅”的定价确认。未来若长租公寓公募REITs实现零的突破，流动性溢价有望进一步压缩资本化率。风险点在于：部分城市供应快速增加可能带来阶段性租金压力，以及运营机构能力分化导致的实际NOI波动。</p>
+<h3><span class="n3">12.3</span> 消费基础设施：分化中的结构性机会</h3>
+<p>购物中心资本化率整体企稳，但内部分化加剧。核心城市核心商圈成熟项目凭借稳定客流与品牌调改能力，维持较低资本化率；非核心与低线城市项目则需更高回报补偿运营与租户风险。社区商业因“必选消费”属性与较低管理半径，获得机构额外青睐，资本化率溢价约40bps被市场接受。</p>
+<p>奥特莱斯的独特性在于收入结构（联营为主）带来的波动性与对运营能力的高要求，因此资本化率系统性高于购物中心。2025年一线城市奥莱资本化率较上年下降，反映REITs扩容预期与消费降级背景下奥莱相对优势的显现。土地剩余年限是消费REITs估值的最大约束变量，未来政策突破将是估值重估的关键催化剂。</p>
+<h3><span class="n3">12.4</span> 物流与工业：供需再平衡中的定价调整</h3>
+<p>高标物流在经历高速扩张后进入供需再平衡期。2025年资本化率上行是对短期租金与空置压力的直接反映。然而，公募REITs为原始权益人提供了确定性退出通道，使得即便大宗交易流动性下降，REITs路径仍具吸引力。区域上，环沪与大湾区（除广深）因产业基础与需求密度，资本化率相对较低；成渝与华中则反映更高的市场与运营风险溢价。</p>
+<p>工业厂房流动性弱于物流，定制化特征导致买卖匹配难度更高，资本化率系统性高出约40bps。环沪区域因长三角制造业升级与产业转移承接，获得最高关注度。投资者需区分“标准厂房”与“高度定制厂房”，后者退出难度显著更大。</p>
+<h3><span class="n3">12.5</span> 数据中心：新基建时代的定价探索</h3>
+<p>数据中心是2025年公募REITs与机构间REITs的全新业态。长期稳定租约、租户付租能力强、算力需求增长确定性强，使其具备类基础设施属性。EBITDA倍数10.6x-12.7x（一线）对应的资本化率水平显著高于物流，反映市场对运营复杂性、技术迭代风险与交易案例稀缺的定价。</p>
+<p>买卖双方区间收窄是积极信号，说明定价共识正在形成。环京、环沪因互联网企业总部与数据中心集群优势，获得最高估值倍数。未来随着更多REITs产品落地与二级市场表现验证，数据中心有望成为长线资金（险资、养老金）的重要配置品种，资本化率有望温和压缩。</p>
+</section>
+<section id="s13" class="sec"><header class="sh"><span class="sn">十三</span><h2>公募REITs与一级市场的联动机制</h2></header>
+<p>公募REITs对一级不动产市场的影响正在从“退出渠道”向“定价锚+模式引导”深化。具体机制包括：</p>
+<ul>
+<li><p>估值锚定：REITs底层资产收益法估值资本化率成为同类资产大宗交易的重要参考。</p></li>
+<li><p>模式输出：“基金收购+专业运营+REITs退出”被险资广泛复制，改变传统持有逻辑。</p></li>
+<li><p>流动性预期：即使当前未上市，具备REITs潜力的资产在Pre-REITs阶段已能获得一定流动性溢价。</p></li>
+<li><p>风险偏好引导：REITs投资者对稳定分红的要求，反向约束原始权益人与基金管理人的资产选择与运营标准。</p></li>
+</ul>
+<p>2025年REITs二级市场经历“上半年利率驱动上涨、下半年基本面与股市分流下的回落”。派息率随价格上涨而压缩，部分板块已接近或低于机构期望下限。这提示：二级市场情绪与一级资本化率并非简单线性传导，短期折溢价波动可能扭曲定价信号，投资者需结合基本面独立判断。</p>
+</section>
+<section id="s14" class="sec"><header class="sh"><span class="sn">十四</span><h2>风险情景与压力测试思考</h2></header>
+<p>基准情景（概率较高）：经济温和复苏，租金企稳但难现强劲增长，资本化率在2026年大部分业态继续温和上行10-30bps后趋于稳定。长租公寓与数据中心表现相对抗跌。</p>
+<p>乐观情景：政策加力（包括土地续期明确、REITs进一步扩容、税收优惠）、利率继续下行、核心城市去化加速，则零售、公寓、数据中心资本化率有望提前见顶并小幅回落，办公与物流升幅收窄。</p>
+<p>悲观情景：外部冲击或国内需求持续疲软，空置率进一步攀升，机构风险偏好显著收缩，则办公、物流、产业园资本化率可能再上行50bps以上，成交量维持低位，自用与法拍占比继续提高。</p>
+<p>关键监测指标建议：核心城市甲级写字楼净吸纳量与租金指数、高标物流空置率、保租房与消费REITs二级市场派息率与折溢价、LPR与十年期国债收益率走势、土地续期政策进展。</p>
+</section>
+<section id="s15" class="sec"><header class="sh"><span class="sn">十五</span><h2>结论与行动建议总结</h2></header>
+<p>2025年中国不动产资本化率调研与市场实践共同指向一个清晰图景：市场仍在调整中寻找新的均衡，风险溢价系统性抬升，但结构性机会已经出现。长租公寓与数据中心代表了“政策+需求+退出”三重共振的方向；核心零售展现韧性；办公与部分物流则需要更多时间消化供应与重建租金预期。</p>
+<p>对机构投资者而言，当前阶段更宜采取“精选优质+结构优先+REITs视角”的策略，而非简单追逐绝对规模或名义高收益。对原始权益人而言，提前按照REITs标准进行资产梳理、运营提升与权属规范，是降低未来退出折价的有效路径。对政策制定者而言，土地续期、REITs扩容细节与税收中性安排，将是决定市场信心与定价效率的关键变量。</p>
+<p>本报告基于第六期调研与公开市场数据完成。资本化率是动态的市场共识，而非静态真理。持续跟踪调研更新、REITs二级表现与租赁基本面变化，是做出正确投资决策的必要前提。</p>
+</section>
+<section id="s16" class="sec"><header class="sh"><span class="sn">十六</span><h2>重点城市补充观察</h2></header>
+<h3><span class="n3">16.1</span> 北京</h3>
+<p>自用型买家成为去化关键力量，医药、科技企业跨界购置核心区资产案例增多（如扬子江药业收购世茂大厦）。机构则聚焦数据中心与租赁住房。法拍市场活跃，高折价核心资产吸引抄底资金。展望：内资主导格局不变，写字楼仍是主流成交类型，但数据中心与长租公寓的机构配置需求将持续释放。外资持有的办公项目若进一步降价，可能为市场提供高性价比供给。</p>
+<h3><span class="n3">16.2</span> 上海</h3>
+<p>内资占比接近100%，非机构客户成交额占比一度超过60%。保障性租赁住房REITs推动相关资产成交。法拍占成交宗数约30%。办公/研发办公占比下降，但核心区顶级资产仍具配置价值。长租公寓、保租房、商场等REITs底层资产持续受机构关注。低息环境有利于内资加杠杆，上海仍是实力企业资产配置首选地之一。</p>
+<h3><span class="n3">16.3</span> 深圳与广州</h3>
+<p>深圳小体量、低总价交易主导，成熟社区底商活跃。写字楼因租金下行机构谨慎，自用买家择机入市。工业类法拍成交较多。广州交易规模收缩，自用与国企主导，高性价比与增值潜力资产受关注。两地均面临写字楼供应与租金压力，但产业升级与消费韧性为特定资产提供支撑。</p>
+<h3><span class="n3">16.4</span> 非一线重点城市</h3>
+<p>杭州凭借数字经济与先进制造业均衡布局，连续多年位居非一线关注度首位。成都消费韧性与新经济业态突出。苏州、南京产业基础扎实。大湾区（除广深）受益于跨境电商与产业外溢，但物流供应快速扩张带来阶段性压力。武汉、合肥、西安、重庆等凭借特色产业集群逐步进入核心关注清单。这些城市的资本化率普遍高于一线核心区100-200bps，反映流动性与市场深度差异，但优质资产的相对收益率吸引力正在上升。</p>
+</section>
+<section id="s17" class="sec"><header class="sh"><span class="sn">十七</span><h2>数据表补充与技术说明</h2></header>
+<p>本报告所有资本化率区间均来自第六期调研买方与卖方意见的重合部分，代表市场在2025年第四季度时点的共识区间，而非实际成交的简单平均。实际成交可能因资产特异性（租约结构、物理状况、权属瑕疵、交易结构）而偏离区间中枢。</p>
+<p>NOI采用市场租金口径，旨在反映资产的长期稳定收益能力，而非短期在签租金的会计结果。这一处理有助于跨资产、跨时间比较，但也可能使高在签、低市场租金的资产在资本化率上显得“偏高”，反之亦然。使用者应结合具体租约情况进行调整。</p>
+<p>数据中心采用EBITDA倍数而非传统资本化率，是因为行业交易惯例与成本结构特征（电力、带宽、运维占比较高）。倍数与资本化率可近似换算，但需注意折旧、资本支出与税务处理的差异。</p>
+<p>报告中的“主要二线城市”“新一线城市”等分类沿用调研问卷口径，具体城市列表以调研原始材料为准。区域划分（环京、环沪、大湾区等）亦同。</p>
+</section>
+<section id="s18" class="sec"><header class="sh"><span class="sn">十八</span><h2>参考文献与数据来源</h2></header>
+<p>1. 戴德梁行、中联基金、瑞思不动产金融研究院：《中国REITs指数之不动产资本化率调研报告（第六期）》，2026年1月。</p>
+<p>2. 戴德梁行资本市场部：2025年中国内地不动产大宗交易数据（不含土地与低于1亿元交易）。</p>
+<p>3. 沪深交易所公募REITs公开披露文件（招募说明书、评估报告、上市公告等）。</p>
+<p>4. 中国人民银行LPR报价与美联储利率决议公开信息。</p>
+<p>5. 相关REITs管理人（OUE、丰树、凯德等）关于内地资产交易的公告。</p>
+</section>
+<section id="s19" class="sec"><header class="sh"><span class="sn">十九</span><h2>买方与卖方行为差异的深层解读</h2></header>
+<p>第六期调研特别设置了买方与卖方双视角，这一设计揭示了当前市场的重要微观结构特征。在多数业态中，卖方给出的资本化率区间高于买方，意味着卖方对资产价格的心理预期已经下调，愿意接受更高的初始收益率（即更低的价格）。这与2022-2023年卖方普遍坚挺的心态形成鲜明对比，反映了持有成本上升、账面压力与流动性需求共同作用下的预期修正。</p>
+<p>零售业态出现卖方区间低于买方的反转现象，值得高度关注。这可能意味着优质零售资产的卖方在定价上重新占据主动，或者买方对零售的风险溢价要求仍然偏高。结合购物中心资本化率整体企稳的结论，可以推断：市场对零售的悲观预期正在修复，至少在核心城市核心项目上，买卖双方的价格分歧已经显著缩小。</p>
+<p>数据中心买卖双方区间收窄并趋同，是另一个积极信号。早期数据中心交易案例稀缺，定价缺乏锚，买方因信息不对称与运营复杂度而要求更高折扣。随着REITs产品落地与更多机构进入，信息透明度提升，共识得以形成。这一过程本身就是市场成熟的重要标志。</p>
+</section>
+<section id="s20" class="sec"><header class="sh"><span class="sn">二十</span><h2>险资行为变化与“REITs化”配置逻辑</h2></header>
+<p>保险资金长期以来是中国商业不动产最重要的机构买家之一。2025年其行为模式发生显著变化：直接持有比例下降，“基金收购+专业运营+REITs退出”成为主流路径。这一转变的底层逻辑包括：</p>
+<ul>
+<li><p>偿付能力与会计处理：通过基金结构与REITs退出，可在一定程度上优化资本占用与收益确认节奏。</p></li>
+<li><p>运营能力边界：险资自身并不擅长重资产运营，引入专业管理机构可降低操作风险。</p></li>
+<li><p>流动性管理：REITs提供了相对清晰的退出预期，匹配保险资金久期与流动性需求。</p></li>
+<li><p>资产荒与收益要求：在利率下行与优质资产稀缺背景下，具备稳定现金流与REITs潜力的资产成为稀缺标的。</p></li>
+</ul>
+<p>阳光人寿参与万达广场资产包、中邮保险参与京东-鼎晖物流包等案例，均体现了这一新逻辑。未来随着公募REITs扩容至更多业态，险资通过REITs进行配置的比例有望继续提升，一级市场“为REITs而买”的交易将更加普遍。</p>
+</section>
+<section id="s21" class="sec"><header class="sh"><span class="sn">二十一</span><h2>自用买家崛起的市场含义</h2></header>
+<p>2025年自用型买家在写字楼、部分商业与法拍市场中的活跃度显著上升。这一现象具有多重含义：</p>
+<ul>
+<li><p>价格发现功能部分失效：自用买家不以资本化率为核心决策变量，其成交价格可能偏离机构投资者的合理区间，导致市场成交资本化率的解读需要分层。</p></li>
+<li><p>去化托底作用：在机构观望期，自用需求为市场提供了重要的流动性支持，防止价格螺旋式下跌。</p></li>
+<li><p>资产持有结构变化：更多物业从“投资性”转向“自用性”，长期可能降低市场的可交易存量，进一步影响流动性与定价效率。</p></li>
+<li><p>行业外资本进入：医药、科技、教育等实体企业成为重要买家，其资金实力与持有逻辑与传统地产基金完全不同。</p></li>
+</ul>
+<p>对机构投资者的启示是：在自用买家活跃的市场阶段，单纯以资本化率比较可能低估或高估特定资产的相对价值。需要结合买家结构、资产是否适合自用、以及潜在改造增值空间进行综合判断。</p>
+</section>
+<section id="s22" class="sec"><header class="sh"><span class="sn">二十二</span><h2>土地使用年限问题的系统影响</h2></header>
+<p>中国城市土地有偿有限期使用制度，是区别于大多数成熟市场的根本性制度安排。对REITs与大宗交易估值的影响正在凸显：</p>
+<ul>
+<li><p>消费基础设施REITs底层资产剩余土地年限普遍19-32年，投资者已开始对不足20年项目要求额外风险溢价。</p></li>
+<li><p>部分产业园项目因剩余年限仅14-16年，估值资本化率显著抬升至7.7%-9.2%。</p></li>
+<li><p>Pre-REITs市场对短年限资产的流动性担忧上升，交易难度加大。</p></li>
+<li><p>跨境案例中，凯德长沙项目从2019年剩余25年、净收益率6.2%，到2025年剩余19年、净收益率7.26%，清晰展示了年限缩短对收益率的抬升作用。</p></li>
+</ul>
+<p>土地续期政策的明确与可操作化，已成为影响消费与部分产业类资产长期定价的关键变量。若政策能提供清晰、成本可控的续期预期，相关资产的资本化率中枢有望下移；反之，则短年限资产将持续面临估值折价与流动性折价的双重压力。</p>
+</section>
+<section id="s23" class="sec"><header class="sh"><span class="sn">二十三</span><h2>区域分化与“核心-外围”策略</h2></header>
+<p>调研与市场数据均显示，中国不动产市场的区域分化正在加剧。北京、上海核心区资产继续享受最低资本化率与最高关注度；深圳、广州次之；新一线与强二线城市内部亦出现明显分层。</p>
+<p>杭州的持续领先地位值得深入分析。数字经济产业集群带来办公与研发需求，先进制造业支撑工业与物流，消费服务业活跃支撑零售与公寓。这种“多业态共振”使其在非一线城市中具备独特吸引力。成都则更多依赖消费韧性与新经济（电竞、文创）的弹性。苏州、南京凭借长三角一体化与产业基础获得稳定关注。</p>
+<p>对投资者的策略含义是：在“核心城市核心资产”溢价高企、收益空间有限的背景下，精选非一线城市的优质资产（尤其是有明确产业支撑、REITs潜力或改造增值空间的项目）可能提供更好的风险调整后回报。但必须严格筛选，避免陷入流动性陷阱与基本面恶化的城市。</p>
+</section>
+<section id="s24" class="sec"><header class="sh"><span class="sn">二十四</span><h2>未来三年情景推演</h2></header>
+<p>综合调研结论、货币政策环境、供应周期与REITs扩容节奏，我们对2026-2028年中国不动产资本化率走势做如下情景推演：</p>
+<h3><span class="n3">24.1</span> 基准情景（概率约55%）</h3>
+<p>经济温和复苏，租金在2026年下半年至2027年逐步企稳，但难现强劲反弹。办公与物流资本化率在2026年继续上行10-30bps后高位震荡，2027-2028年随去化推进小幅回落。长租公寓与核心零售保持相对稳定。数据中心资本化率温和下行。REITs市场稳步扩容，二级派息率在利率环境稳定下维持低位震荡。</p>
+<h3><span class="n3">24.2</span> 乐观情景（概率约25%）</h3>
+<p>政策协同发力（包括更大力度的需求刺激、土地续期细则落地、REITs扩容提速），叠加全球降息周期深化，核心城市去化加速。办公资本化率2026年见顶，2027年起回落。物流与产业园跟随。长租公寓与数据中心率先受益，资本化率压缩。REITs二级市场迎来估值提升与规模扩张的双重行情。</p>
+<h3><span class="n3">24.3</span> 悲观情景（概率约20%）</h3>
+<p>外部冲击或国内有效需求持续不足，空置率继续攀升，机构风险偏好显著收缩。办公、物流、产业园资本化率在2026-2027年再上行50bps以上，成交量维持低位。自用与法拍成为主要交易力量。REITs二级市场承压，新发节奏放缓。仅有政策强支持的保租房与部分消费资产维持相对稳定。</p>
+</section>
+<section id="s25" class="sec"><header class="sh"><span class="sn">二十五</span><h2>给不同类型投资者的具体建议</h2></header>
+<h3><span class="n3">25.1</span> 保险资金与养老金</h3>
+<p>优先配置具备稳定现金流、成熟运营、清晰REITs退出路径的核心或核心增值型资产。重点关注一线城市长租公寓、核心商圈购物中心、高品质数据中心。通过私募基金结构参与，降低直接运营负担。严格评估土地年限与租约质量。将C-REITs二级市场作为重要的流动性管理与再平衡工具。</p>
+<h3><span class="n3">25.2</span> 不动产私募基金</h3>
+<p>发挥主动管理与价值创造能力，聚焦“商改租”、城市更新、资产改造提升等增值策略。在办公与部分物流领域寻找深度折扣的压力资产，但必须具备清晰的退出路径（自用转售或REITs）。加强与险资、REITs管理人的合作，打造“募-投-管-退”闭环。区域上可适度向杭州、成都、苏州等非一线优质市场倾斜。</p>
+<h3><span class="n3">25.3</span> 开发商与原始权益人</h3>
+<p>尽早按照REITs标准梳理资产包，提升运营透明度与治理水平。优先将成熟、现金流稳定、权属清晰的资产注入REITs或Pre-REITs基金。关注土地年限问题，积极参与续期政策沟通。对非核心、低效资产果断出清，回笼资金用于核心主业或轻资产转型。</p>
+<h3><span class="n3">25.4</span> 外资机构</h3>
+<p>当前环境更适合“选择性参与”而非大规模配置。可关注与境内REITs平台的合作机会（跨境资产整合、共同管理等）。对现有持仓，评估通过境内REITs实现退出的可行性与估值影响。新建仓应严格限定于核心城市顶级资产或具有明确政策支持的业态（如数据中心、保租房）。</p>
+</section>
+<section id="s26" class="sec"><header class="sh"><span class="sn">二十六</span><h2>监测框架与动态调整机制</h2></header>
+<p>建议投资者建立以下监测框架，并根据信号变化动态调整策略：</p>
+<p>季度监测指标：</p>
+<ul>
+<li><p>核心城市甲级写字楼净吸纳量、空置率、租金指数</p></li>
+<li><p>高标物流重点市场空置率与租金</p></li>
+<li><p>公募REITs二级市场平均派息率、折溢价率、成交活跃度</p></li>
+<li><p>LPR、十年期国债收益率、中美利差</p></li>
+<li><p>大宗交易成交额、单数、买家结构（内资/外资、机构/自用）</p></li>
+</ul>
+<p>半年度/年度监测指标：</p>
+<ul>
+<li><p>新一期资本化率调研结果（若发布）</p></li>
+<li><p>REITs新发与扩募规模、业态结构</p></li>
+<li><p>土地续期与REITs相关政策进展</p></li>
+<li><p>重点城市供应管道与去化周期</p></li>
+</ul>
+<p>触发调整的信号示例：若核心城市写字楼连续两个季度净吸纳转正且租金止跌，可逐步提高办公配置比例；若REITs二级派息率系统性低于机构期望下限且成交低迷，需警惕一级定价高估风险；若土地续期政策明确利好，可重新评估短年限消费与产业资产的价值。</p>
+</section>
+<section id="s27" class="sec"><header class="sh"><span class="sn">二十七</span><h2>结语</h2></header>
+<p>中国不动产市场正处在从高速增长向高质量发展转型的关键阶段。资本化率作为连接资产端与资金端的核心定价指标，其演变轨迹深刻反映了这一转型的阵痛与希望。第六期调研为我们提供了2025年末这一时点的清晰快照：风险溢价上升是普遍现象，但结构性机会已经涌现；REITs正在从“试点”走向“常态”，并逐步承担起定价锚与模式引导的功能；不同买家群体的行为分化，要求我们以更精细的框架解读市场。</p>
+<p>未来三年，市场大概率将在“震荡筑底—结构分化—缓慢修复”的路径中前行。能够穿越周期的投资者，往往是那些既尊重资本化率所传递的风险信号，又善于在结构变化中发现被错误定价机会的人。愿本报告能为各方决策提供有价值的参考。</p>
+</section>
+<section id="s28" class="sec"><header class="sh"><span class="sn">二十八</span><h2>资本化率与宏观经济变量的联动</h2></header>
+<p>资本化率在理论上可分解为无风险利率 + 风险溢价 - 预期增长率。2025年中国无风险利率（以十年期国债与LPR为代理）整体下行，按经典模型资本化率应有所压缩。然而实际调研显示多数业态资本化率上行，说明风险溢价的上升幅度超过了无风险利率的下降幅度，同时预期租金增长率被显著下调。</p>
+<p>这一现象在办公与物流板块最为明显。办公的风险溢价上升来自空置风险、租户信用风险与退出流动性风险的全面抬升；物流则叠加了供应过剩带来的市场风险。长租公寓与数据中心的风险溢价相对稳定甚至下降，反映了其现金流确定性与政策支持被市场认可。</p>
+<p>对投资者的实践含义是：不能简单用“利率下行→资本化率下行”的线性思维指导配置。必须同步评估基本面风险溢价的变化。在当前阶段，基本面风险溢价仍是主导变量。</p>
+</section>
+<section id="s29" class="sec"><header class="sh"><span class="sn">二十九</span><h2>REITs二级市场与一级资本化率的传导机制</h2></header>
+<p>公募REITs二级市场的派息率与一级市场资本化率之间存在相互影响，但并非瞬时完全传导。二级市场受利率、股市情绪、资金流动、产品供需等多重因素影响，短期波动可能偏离基本面。一级市场交易则更直接反映买卖双方对资产长期收益与风险的判断，且受交易摩擦与信息不对称约束。</p>
+<p>当二级派息率系统性低于一级资本化率共识时，可能产生两种后果：一是刺激更多资产寻求上市，增加供给；二是一级买家要求更高折扣以弥补潜在的上市折价风险。2025年下半年部分板块已出现二级派息率接近或低于机构期望下限的情况，值得一级市场参与者警惕。</p>
+<p>反之，若二级市场因流动性溢价或稀缺性而出现显著溢价（派息率过低），则可能推高Pre-REITs资产的一级定价，形成阶段性泡沫风险。投资者应建立二级-一级联动监测，避免被短期情绪误导。</p>
+</section>
+<section id="s30" class="sec"><header class="sh"><span class="sn">三十</span><h2>不同持有期限投资者的策略差异</h2></header>
+<p>调研显示受访机构持有期限分布：3年以下8%、3-6年48%、6-9年18%、9年以上26%。不同期限偏好对应不同的策略重点：</p>
+<p>短期持有者（3年以下）更关注政策导向与二级市场流动性，适合参与有明确REITs退出时间表的Pre-REITs项目或二级市场波段。对资本化率的绝对水平敏感度高，更倾向于高初始收益率资产。</p>
+<p>中期持有者（3-6年，占比最高）是当前市场的主力。他们平衡现金流收益与退出价值，既要求合理的资本化率水平，也看重资产的运营提升空间与REITs适配性。长租公寓、核心零售、优质物流是其主要配置方向。</p>
+<p>长期持有者（6年以上）更看重资产的抗通胀属性、租约久期与残值保护。数据中心、核心区顶级零售、优质保租房符合其需求。他们对短期资本化率波动的容忍度更高，更关注穿越周期的复合回报。</p>
+</section>
+<section id="s31" class="sec"><header class="sh"><span class="sn">三十一</span><h2>方法论反思与未来调研方向建议</h2></header>
+<p>第六期调研在方法论上已较为成熟：双视角设计、细分城市与业态、明确的NOI定义、数据中心采用行业惯例指标等。未来可进一步优化的方向包括：</p>
+<ul>
+<li><p>增加实际成交资本化率的收集与对比， bridging 调研共识与真实交易。</p></li>
+<li><p>引入租约结构、物理状况、权属瑕疵等调整因子的量化框架。</p></li>
+<li><p>加强对自用买家行为的专项调研，完善非机构定价逻辑的理解。</p></li>
+<li><p>探索动态资本化率（考虑租金增长与退出资本化率）与静态资本化率的结合使用。</p></li>
+<li><p>扩大对Pre-REITs与机构间REITs市场的覆盖，捕捉新兴定价信号。</p></li>
+</ul>
+<p>持续、可比、透明的资本化率调研，是中国不动产市场走向成熟定价的重要基础设施。期待后续期次在样本代表性、时效性与颗粒度上继续提升。</p>
+</section>
+<section id="s32" class="sec"><header class="sh"><span class="sn">三十二</span><h2>附录：关键数据速查表</h2></header>
+<p>为便于快速查阅，将第六期调研核心资本化率区间汇总如下（单位：%；数据中心为EBITDA倍数）：</p>
+<p>办公类：北京核心甲级5.0-5.9，非核心5.6-6.7；上海核心5.0-6.0，非核心5.5-6.7；深圳核心5.2-6.3，非核心5.7-6.8；广州核心5.6-6.7，非核心6.0-7.2；主要二线6.8-7.8。商务园区：北京5.9-6.8，上海5.8-6.7，深圳6.1-6.9，广州6.3-7.1，主要二线6.9-7.8。</p>
+<p>零售类：购物中心北京5.2-6.5，上海5.3-6.4，深圳5.3-6.5，广州5.6-6.8，新一线6.0-7.2，主要二线6.5-7.8，三四线7.4-8.7。社区商业普遍高约40bps。奥特莱斯一线约5.6-7.0，新一线6.4-7.5，二线7.0-8.2，三四线8.0-9.3。</p>
+<p>住宿类：长租公寓北京4.9-5.5，上海5.0-5.5，深圳5.1-6.2，广州5.3-6.4，主要二线5.9-7.0。酒店一线约5.7-6.9，主要二线6.8-7.8。</p>
+<p>工业类：仓储物流一线5.4-6.3，环京6.1-7.0，环沪5.9-6.7，大湾区（除广深）5.9-6.4，成渝6.5-7.3，华中6.8-7.4。工业厂房同城高约40bps。数据中心EBITDA倍数一线10.6-12.7x，环京/环沪9.6-11.5x，大湾区9.2-11.3x，成渝/华中约8.8-10.9x。</p>
+<p>未来一年预期：办公、园区、酒店、工业厂房、仓储物流↑；零售、长租公寓→；数据中心↓。</p>
+</section>
+<section id="s33" class="sec"><header class="sh"><span class="sn">三十三</span><h2>最终声明</h2></header>
+<p>本报告全文基于公开信息与第六期中国REITs指数之不动产资本化率调研报告整理分析而成，旨在为市场参与者提供系统性的数据解读与趋势研判框架。报告中的观点与预测仅代表基于当前信息的研究判断，不构成任何投资、法律或商业建议。市场有风险，决策需谨慎。数据与结论可能随新信息发布而更新，请以最新官方披露与调研为准。</p>
+<p>感谢戴德梁行、中联基金、瑞思不动产金融研究院及所有参与调研的112家机构与专家。中国不动产金融的发展离不开专业力量的持续投入与开放交流。</p>
+<p>报告完成于2026年11月。</p>
+</section>
+<section id="s34" class="sec"><header class="sh"><span class="sn">三十四</span><h2>补充：2025年典型交易案例的资本化率启示</h2></header>
+<p>除调研共识外，实际公开交易案例提供了重要的验证与补充。OUE-REIT出售上海力宝广场净收益率5.70%，处于上海核心写字楼调研区间上沿，反映资产老化与土地年限压力下的定价。凯德长沙项目跨境进入公募REITs后净收益率升至7.26%，清晰量化了土地年限缩短的影响。阳光人寿万达广场包、京东-鼎晖物流包等交易虽未完全披露资本化率，但从险资参与结构可推断其满足长线资金对稳定现金流与退出路径的要求。</p>
+<p>这些案例共同说明：调研资本化率区间是“合意交易”的参考中枢，实际成交会因资产特异性上下浮动；REITs路径正在成为重要的定价与退出基准；土地年限与物理老化是不可忽视的价值折损因素。</p>
+</section>
+<section id="s35" class="sec"><header class="sh"><span class="sn">三十五</span><h2>政策演进与市场制度建设展望</h2></header>
+<p>2025年REITs政策持续完善：782号文推动常态化推荐，扩募业务指南细化实操，商业不动产REITs试点征求意见，行业范围清单新增酒店、体育场馆、城市更新与商业办公设施。这些举措将显著扩大可证券化资产池，提升市场深度与定价效率。</p>
+<p>未来制度建设的关键领域包括：土地续期的清晰规则与成本机制、REITs税收中性安排的进一步优化、信息披露与治理标准的持续提升、以及公募与私募/机构间REITs的协同发展。制度红利的释放速度，将在很大程度上决定资本化率中枢的长期位置与市场活跃度。</p>
+</section>
+<section id="s36" class="sec"><header class="sh"><span class="sn">三十六</span><h2>研究局限与读者须知</h2></header>
+<p>本报告存在以下局限：调研样本虽覆盖主要机构类型，但无法完全代表全部市场参与者（尤其是个人与中小自用买家）；资本化率区间为时点共识，不构成对未来成交的保证；宏观与政策环境快速变化可能使部分判断迅速过时；部分数据依赖公开披露，存在口径与时效差异。</p>
+<p>读者在使用本报告时，应结合自身风险偏好、投资期限、尽职调查结果与最新市场信息，做出独立判断。报告作者不对基于本报告的任何决策承担法律责任。</p>
+</section>
+<section id="update" class="sec update"><header class="sh"><span class="sn">★</span><h2>2026年11月修訂更新聲明</h2></header>
+<p>本報告原基於《中國REITs指數之不動產資本化率調研報告（第六期）》（2026年1月出版，數據主要覆蓋至2025年底）編寫。現根據2026年全年市場最新公開數據進行修訂更新，重點校正上海內外資交易結構表述，補充2026年大宗交易與公募REITs最新動態，並將趨勢預測延伸至2027年。修訂日期：2026年11月。</p>
+<h3>【重要校正】上海大宗交易內外資結構：2025-2026年完整圖景</h3>
+<p>原報告引用2025年上半年數據時使用「內資占盡大宗交易市場全數份額」的表述。該表述針對當時成交買家端幾乎全部為內資的事實，並非否定外資在上海的存量持有或資產管理活動。</p>
+<p>2026年最新監測數據顯示：</p>
+<ul>
+<li><p>2026年上半年：內資成交額占比約93%，外資約7%（高力國際數據）。</p></li>
+<li><p>2026年前三季度：內資約94.6%（456.8億元）、外資約5.4%（26億元，僅4宗）。</p></li>
+<li><p>部分季度監測中曾出現內資回升至接近100%的情況，但全年累計外資仍維持低個位數占比。</p></li>
+</ul>
+<p>關鍵特徵是「外資淨賣方 + 內資全面主導新成交」：</p>
+<ul>
+<li><p>外資在賣方端活躍（例如前三季度外資賣出約120億元，淨流出明顯），核心資產持續出清。</p></li>
+<li><p>買方端外資極少，多為港資自用或個別長期機構的選擇性參與。</p></li>
+<li><p>主要買家轉為民營企業/產業資本（自用為主，拼多多等多筆大額整棟收購為代表）、險資（大額配置）及非機構買家。</p></li>
+<li><p>自用需求成為寫字樓去化的重要力量，產業資本替代傳統財務投資人成為大額買家標誌性變化。</p></li>
+</ul>
+<p>因此，準確表述應為：2025-2026年上海大宗交易買家端高度內資化（2025年上半年接近100%，2026年全年約93%-95%），外資以存量持有、淨賣出與極少數選擇性參與為主，並未完全消失，但新增大宗收購角色已邊緣化。外資仍可通過合資、REITs合作、資產管理等方式間接參與市場。</p>
+<h3>2026年市場最新動態補充（原報告未覆蓋時段）</h3>
+<h4>1. 大宗交易回暖與結構重塑</h4>
+<p>2026年上海前三季度大宗交易錄得約482.8億元、80宗，同比分別增長約27%。全國上半年大宗交易總額約1212億元，較2025年同期大幅增長。市場從2025年的謹慎觀望轉向量的修復，但驅動邏輯已變：非外資回歸，而是內資產業自用需求與險資配置接力。</p>
+<p>辦公物業仍活躍，但以自用與產業資本為主；長租公寓、產業園區成交金額佔比提升；零售與酒店分化。中小額交易保持活躍，大單由險資與產業巨頭托底。</p>
+<h4>2. 公募REITs邁入百只時代</h4>
+<p>2026年11月下旬，隨著廣發新城吾悅商業REIT上市，境內公募REITs正式達到100只，累計發行規模超過2600億元。商業不動產REITs快速擴容，民營房企首單落地，標誌「基礎設施+商業不動產」雙輪驅動格局確立。</p>
+<p>二級市場2026年波動明顯，部分板塊出現較深回調與折價，產業園、倉儲物流承壓較大，保障房相對抗跌。產權類分派率與國債利差走闊至歷史高分位，配置價值討論升溫。整體從「利率驅動」更多轉向「現金流確定性」定價。</p>
+<h4>3. 險資與產業資本成為定價錨</h4>
+<p>險資通過組團基金方式大額配置核心商辦、保租房、物流等資產，「基金收購+專業運營+REITs退出」模式進一步常態化。產業資本（互聯網、先進製造、消費等）整棟自用購置成為寫字樓市場重要支撐，改變了傳統財務投資人主導的定價邏輯。</p>
+<h3>2027年趨勢預測（更新版）</h3>
+<p>綜合2025-2026年完整數據與當前宏觀、政策、供需環境，對2027年作出以下判斷：</p>
+<h3>基準情景（概率較高）</h3>
+<ul>
+<li><p>上海及一線城市大宗交易繼續由內資主導，外資占比維持低個位數，淨賣方角色延續。成交量溫和增長或持穩，產業自用與險資配置仍是主軸。</p></li>
+<li><p>資本化率：辦公與部分物流高位震盪，若租金實質企穩則小幅回落；長租公寓、核心零售、數據中心相對穩定或溫和壓縮。整體風險溢價仍高於2021-2022年水平。</p></li>
+<li><p>公募REITs：規模繼續擴容（商業不動產與更多業態），二級市場在低利率與高分派率吸引下有望逐步修復，但優質與普通資產分化加劇。</p></li>
+<li><p>土地年限、REITs擴募效率與稅收安排仍是影響估值中樞的關鍵變量。</p></li>
+</ul>
+<h3>上行與下行風險</h3>
+<p>上行風險：政策進一步明確土地續期、REITs制度優化、租金企穩回升 → 資本化率提前見頂並溫和回落，外資出現少量選擇性回流。</p>
+<p>下行風險：經濟或租賃需求再度走弱 → 資本化率繼續溫和上行，成交更依賴自用需求與折價出清，REITs二級波動加大。</p>
+<h3>策略啟示更新</h3>
+<ul>
+<li><p>機構投資者：繼續以「精選核心+REITs視角」為主，優先長租公寓、數據中心、核心零售與具備清晰退出路徑的物流/產業園。</p></li>
+<li><p>產業資本與自用買家：當前價格窗口仍具吸引力，適合鎖定長期使用成本。</p></li>
+<li><p>外資：存量優化與境內REITs/合資合作為主，大規模直接收購時機尚未成熟。</p></li>
+<li><p>監測重點：核心城市租金與空置率拐點、險資配置節奏、REITs二級分派率與折溢價、土地續期政策進展。</p></li>
+</ul>
+<p>本修訂版已將上述2026年動態與2027年預測全面納入分析框架，確保與最新市場事實一致。</p>
+<h3>報告修訂完成日期：2026年11月</h3>
+</section>
+</main></div>
+<footer><div class="in"><b>免责声明</b>　本报告仅供研究参考，不构成任何投资、法律或商业建议。数据可能存在统计口径差异与滞后，使用者应独立判断并承担决策风险。<br>数据来源：《中国REITs指数之不动产资本化率调研报告（第六期）》（戴德梁行、中联基金、瑞思不动产金融研究院，2026年1月）及公开披露信息。</div></footer>
+<script>
+const L=[...document.querySelectorAll('nav.toc a')],S=L.map(a=>document.querySelector(a.getAttribute('href')));
+const f=()=>{let c=0;S.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<140)c=i});L.forEach((a,i)=>a.classList.toggle('on',i==c))};
+addEventListener('scroll',f,{passive:true});f();
+</script></body></html>
